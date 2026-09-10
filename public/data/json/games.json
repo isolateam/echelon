@@ -9,6 +9,11 @@
   ],
   "games": [
     {
+      "name": "Challenge Rush",
+    "directory": "https://challengerush.com/",
+      "image": "./data/images/games/geometry-dash.png"
+    },
+    {
       "name": "Balatro",
     "directory": "https://webalatro2.vercel.app/",
       "image": "./data/images/games/balatro.png"

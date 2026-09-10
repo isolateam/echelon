@@ -9,6 +9,16 @@
   ],
   "games": [
     {
+      "name": "R.E.P.O.",
+    "directory": "/data/g/repo/",
+      "image": "./data/images/games/repo.png"
+    },
+    {
+      "name": "People Playground",
+    "directory": "/data/g/people-playground/",
+      "image": "./data/images/games/people-playground.png"
+    },
+    {
       "name": "Bloons TD 6",
     "directory": "https://iclouds.space/HTML5GAMES/BloonsTD6/index.html",
       "image": "./data/images/games/5.png"
@@ -240,7 +250,7 @@
     },
     {
       "name": "Roblox",
-      "directory": "https://renderisgay.onrender.com/?app_pkg=com.roblox.client&partner=gamenora",
+      "directory": "https://now.gg/apps/a/19900/b.html",
       "image": "./data/images/games/roblox.png"
     },
     {

@@ -188,7 +188,7 @@
         const iframe = document.createElement("iframe");
         const img = document.getElementById("icon");
         tab.textContent = "Loading..";
-        iframe.src = "/";
+        iframe.src = "/null";
         setInterval(function () { 
           tab.textContent = iframe.contentWindow.document.getElementById('fram').contentDocument.title; 
           if (iframe.contentWindow.document.getElementById('fram').contentDocument.querySelector('link[rel="icon"]')) {

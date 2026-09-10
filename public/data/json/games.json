@@ -9,6 +9,11 @@
   ],
   "games": [
     {
+      "name": "Indian Truck Driving",
+    "directory": "https://ubgwtf.gitlab.io/indian-truck-simulator-3d/",
+      "image": "./data/images/games/indian-truck.png"
+    },
+    {
       "name": "Challenge Rush",
     "directory": "https://challengerush.com/",
       "image": "./data/images/games/geometry-dash.png"

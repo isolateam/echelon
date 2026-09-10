@@ -2,27 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5808709323793475"
-     crossorigin="anonymous"></script> 
-     <meta name="title" content="Breakium" />
-     <meta name="description" content="The future of unblocked games" />
-     <meta name="image" content="./data/images/favicon-transparent.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Breakium">
+    <meta name="description" content="The future of unblocked games">
+    <meta name="image" content="./data/images/favicon-transparent.png">
     <link rel="stylesheet" href="./data/css/q.css">
-    <link rel="icon" href="./data/images/favicon-transparent.png" />
-        <link rel="shortcut icon" href="./data/images/favicon-transparent.png" />
-
+    <link rel="icon" href="./data/images/favicon-transparent.png">
+    <link rel="shortcut icon" href="./data/images/favicon-transparent.png">
     <title>breakium</title>
-    
 
-    <!-- uv vvv -->
-    <script src="/uv/uv.bundle.js"></script>
-    <script src="/uv/uv.config.js"></script>
-    <!-- dynamic (you never know) -->
-    <script src="/dynamic/dynamic.worker.js"></script>
-    <script src="/dynamic/dynamic.config.js"></script>
-    <!-- eruda -->
+    <script src="/scram/scramjet.js"></script>
+    <script src="/controller/controller.api.js"></script>
+    <script src="/utils/scramjet-utils.js"></script>
     <script src="./data/js/eruda.js"></script>
 </head>
 <body>
@@ -40,16 +31,18 @@
             <a onclick="fFram()">
                 <div class="buttin"><img id="svgg" style="margin-top: 4px;" src="/data/images/svg/right.svg"></div>
             </a>
+
             <div class="slashapp" autocomplete="off" style="position: relative; margin-right:10px; margin-top: 7px; border-radius: 10px;">
                 <form id="uv-form">
                     <input placeholder="type as you must" id="uv-address" style="max-height: 10px; padding: 10px; letter-spacing: 1px;" class="slashapp_" type="text">
                 </form>
                 <div id="suggestions-box"></div>
             </div>
+
             <a onclick="fsFram()">
                 <div class="buttin"><img id="svgg" style="margin-top: 4px;" src="/data/images/svg/fullscreen.svg"></div>
             </a>
-            <a onclick="window.open(document.getElementById('fram').src, '_blank')">
+            <a onclick="oFram()">
                 <div class="buttin"><img style="margin-top: 4px;" src="/data/images/svg/idk.png"></div>
             </a>
             <a onclick="consol()">
@@ -58,248 +51,376 @@
             <a onclick="window.location.href='/tabs.html'">
                 <div class="buttin"><img id="svg" style="margin-top: 4px;" src="/data/images/plus-5-xxl.png"></div>
             </a>
-          <a onclick="toggleDropdown()">
-            <div class="buttin"><img style="margin-top: 4px;" src="./data/images/star.png"></div>
-        </a>
+            <a onclick="toggleDropdown()">
+                <div class="buttin"><img style="margin-top: 4px;" src="./data/images/star.png"></div>
+            </a>
+
             <button id="add-bookmark">+</button>
-            <input type="text" id="bookmark-name" placeholder="Bookmark Name" />
+            <input type="text" id="bookmark-name" placeholder="Bookmark Name">
             <ul id="bookmark-list"></ul>
-  
-          <div class="dropdown">
-              <div class="dropdown-content" id="dropdownContent">
-                  <p>Dropdown Item 1</p>
-                  <p>Dropdown Item 2</p>
-                  <p>Dropdown Item 3</p>
-              </div>
-          </div>
-          <div id="search-history-container">
-            <h4>Search History</h4>
-            <ul id="search-history-list">
-                <!-- List items will be dynamically added here -->
-            </ul>
-            <button id="clear-history-btn">Clear History</button>
+
+            <div class="dropdown">
+                <div class="dropdown-content" id="dropdownContent">
+                    <p>Dropdown Item 1</p>
+                    <p>Dropdown Item 2</p>
+                    <p>Dropdown Item 3</p>
+                </div>
+            </div>
+
+            <div id="search-history-container">
+                <h4>Search History</h4>
+                <ul id="search-history-list"></ul>
+                <button id="clear-history-btn">Clear History</button>
+            </div>
         </div>
-        </div>
+
         <div class="buttin" id="toggleTopBar">
             <img src="/data/images/svg/collapse.svg" style="width: 26px;" id="toggleIcon">
         </div>
-        <div id="suggestions-box"></div>
     </div>
-      
+
     <iframe src="/" id="fram"></iframe>
 
-    <!-- history section -->
-    
-    
-    <!-- JavaScript to toggle dropdown -->
     <script>
-        function toggleDropdown() {
-            const add = document.getElementById("add-bookmark");
-            const name = document.getElementById("bookmark-name");
-            if (add.style.display === "inline-block") {
-                add.style.display = "none";
-            } else {
-                add.style.display = "inline-block";
-            }
-            if (name.style.display === "inline-block") {
-                name.style.display = "none";
-            } else {
-                name.style.display = "inline-block";
-            }
-        }
-    </script>
-  
-    <script>
-        function toggleTopBar() {
-            const topSpot = document.querySelector('.top-spot');
-            const toggleIcon = document.getElementById('toggleIcon');
-        
-            const currentHeight = window.getComputedStyle(topSpot).height;
+        const form = document.getElementById("uv-form");
+        const address = document.getElementById("uv-address");
+        const fram = document.getElementById("fram");
 
-            if (currentHeight === '2.5vh' || topSpot.style.height === '2.5vh') {
-                console.log('if');
-                topSpot.style.height = '0vh';
-                toggleIcon.src = '/data/images/svg/expand.svg';
-            } else {
-                console.log('else');
-                console.log(topSpot.style.height);
-                topSpot.style.height = '2.5vh';
-                toggleIcon.src = '/data/images/svg/collapse.svg';
-            }
-        }
-  
-        document.getElementById('toggleTopBar').addEventListener('click', toggleTopBar);
-    </script>
-  
-    <!-- Existing Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-79VER3NKGP"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-79VER3NKGP');
-    </script>
-  
-    <script>
-        /* const iframe = document.getElementById('fram');
-        const urlInput = document.getElementById('uv-address');
+        let sjFrame;
+        let controller;
 
-        iframe.onload = function() {
-            const iframeSrc = iframe.src;
-            console.log("Iframe src:", iframeSrc); // Debugging log
-            urlInput.value = iframeSrc;
-        } */
-    </script>
+        function search(input) {
+            input = input.trim();
 
-    <script>
-        /*
-        document.getElementById('uv-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const urlInput = document.getElementById('uv-address');
-            const newUrl = urlInput.value;
+            const searchTemplate =
+                localStorage.getItem("engine") ||
+                "https://google.com/search?q=%s";
 
-            const iframe = document.getElementById('fram');
-            iframe.src = newUrl;
+            try {
+                return new URL(input).toString();
+            } catch {
+                try {
+                    const url = new URL(`http://${input}`);
 
-            document.getElementById('uv-form').onsubmit = function() {
-              urlInput.value = "Loading.."
-            }
+                    if (url.hostname.includes(".")) {
+                        return url.toString();
+                    }
 
-            iframe.onload = function() {
-                const iframeSrc = iframe.src;
-                console.log("Iframe src:", iframeSrc); // Debugging log
-                const serviceIndex = iframeSrc.indexOf('/service/');
-                if (serviceIndex !== -1) {
-                    const extractedText = iframeSrc.substring(serviceIndex + 9);
-                    const decodedText = __uv$config.decodeUrl(extractedText);
-                    urlInput.value = decodedText;
-                } else {
-                    console.warn('The string "/service/" was not found in the iframe src. Current src:', iframeSrc);
-                    urlInput.value = iframeSrc; // Fallback to show the current src
+                    throw new Error();
+                } catch {
+                    return searchTemplate.replace(
+                        "%s",
+                        encodeURIComponent(input)
+                    );
                 }
-            };
-        });
-        */
-    </script>
-  
-    <script>
-       // Bookmark functionality
-    const bookmarkList = document.getElementById('bookmark-list');
-    const addBookmarkButton = document.getElementById('add-bookmark');
-    const bookmarkNameInput = document.getElementById('bookmark-name');
-
-    // Load bookmarks from local storage
-    function loadBookmarks() {
-        const bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
-        bookmarks.forEach(bookmark => {
-            addBookmarkToList(bookmark.name, bookmark.url);
-        });
-    }
-
-    // Add bookmark to the list and local storage
-    function addBookmarkToList(name, url) {
-        const listItem = document.createElement('li');
-        listItem.textContent = `${name}`;
-
-        // Create a remove button
-        const removeButton = document.createElement('button');
-        removeButton.textContent = '×';
-        removeButton.onclick = () => {
-            removeBookmark(name, url);
-            window.location.reload();
-        };
-
-        listItem.appendChild(removeButton);
-        listItem.onclick = () => {
-            document.getElementById('uv-address').value = url;
-            document.getElementById('uv-form').dispatchEvent(new Event('submit'));
-        };
-        bookmarkList.appendChild(listItem);
-    }
-
-    // Remove bookmark function
-    function removeBookmark(name, url) {
-        // Remove from local storage
-        const bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
-        const updatedBookmarks = bookmarks.filter(bookmark => !(bookmark.name === name && bookmark.url === url));
-        localStorage.setItem('bookmarks', JSON.stringify(updatedBookmarks));
-
-        // Remove from the display
-        loadBookmarks(); // Reload bookmarks to update the display
-    }
-
-    // Add bookmark button click event
-    addBookmarkButton.addEventListener('click', () => {
-        const name = bookmarkNameInput.value;
-        const url = document.getElementById('uv-address').value;
-
-        if (name && url) {
-            const bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
-            bookmarks.push({ name, url });
-            localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-            addBookmarkToList(name, url);
-            bookmarkNameInput.value = ''; // Clear input
-        } else {
-            alert('Please enter a name and ensure the URL is set.');
+            }
         }
-    });
 
-    // Initialize bookmarks on page load
-    loadBookmarks();
-    </script>
-  
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const searchBox = document.getElementById('uv-address');
-            const suggestionsBox = document.getElementById('suggestions-box');
+        async function initScramjet() {
+            await navigator.serviceWorker.register("/sw.js", {
+                scope: "/"
+            });
 
-            searchBox.addEventListener('input', async () => {
-                const query = searchBox.value.trim();
+            if (!navigator.serviceWorker.controller) {
+                await new Promise(resolve => {
+                    navigator.serviceWorker.addEventListener(
+                        "controllerchange",
+                        resolve,
+                        { once: true }
+                    );
+                });
+            }
 
-                if (query.length > 0) {
-                    const suggestions = await getSuggestions(query);
-                    showSuggestions(suggestions);
-                } else {
-                    suggestionsBox.style.display = 'none';
+            const serviceworker = navigator.serviceWorker.controller;
+
+            const wispUrl =
+                `${location.protocol === "https:" ? "wss:" : "ws:"}//${location.host}/wisp/`;
+
+            const { default: EpoxyClient } =
+                await import("/epoxy/index.mjs");
+
+            const transport = new EpoxyClient({
+                wisp: wispUrl
+            });
+
+            controller = new $scramjetController.Controller({
+                serviceworker,
+                transport,
+                config: {
+                    prefix: "/~/sj/",
+                    scramjetPath: "/scram/scramjet.js",
+                    wasmPath: "/scram/scramjet.wasm",
+                    injectPath: "/controller/controller.inject.js"
                 }
             });
 
-            async function getSuggestions(query) {
-                const response = await fetch(`/go=${encodeURIComponent(query)}`);
-                const data = await response.json();
-                return data;
+            await controller.wait();
+
+            sjFrame = controller.createFrame(fram);
+
+            const gameUrl = sessionStorage.getItem("gameUrl");
+
+            if (gameUrl) {
+                sessionStorage.removeItem("gameUrl");
+                sjFrame.go(gameUrl);
             }
+        }
 
-            function showSuggestions(suggestions) {
-                suggestionsBox.innerHTML = '';
+        form.addEventListener("submit", event => {
+            event.preventDefault();
 
-                if (suggestions.length > 0) {
-                    suggestionsBox.style.display = 'block';
-                    suggestions.forEach(suggestion => {
-                        const suggestionItem = document.createElement('div');
-                        suggestionItem.classList.add('suggestion-item');
-                        suggestionItem.textContent = suggestion.phrase;
-                        suggestionItem.addEventListener('click', () => {
-                            searchBox.value = suggestion.phrase;
-                            suggestionsBox.style.display = 'none';
-                        });
-                        suggestionsBox.appendChild(suggestionItem);
-                    });
-                } else {
-                    suggestionsBox.style.display = 'none';
-                }
+            const url = search(address.value);
+
+            if (url && sjFrame) {
+                sjFrame.go(url);
+                address.value = url;
             }
         });
+
+        function rFram() {
+            fram.src = fram.src;
+        }
+
+        function bFram() {
+            fram.contentWindow.history.back();
+        }
+
+        function fFram() {
+            fram.contentWindow.history.forward();
+        }
+
+        function oFram() {
+            if (!fram.src || fram.src === location.origin + "/") {
+                return;
+            }
+
+            window.open(fram.src, "_blank");
+        }
+
+        var elem = document.documentElement;
+        var isFullscreen = false;
+
+        function fsFram() {
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+            } else if (elem.webkitRequestFullscreen) {
+                elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) {
+                elem.msRequestFullscreen();
+            }
+
+            isFullscreen = true;
+        }
+
+        function cfsFram() {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.webkitExitFullscreen) {
+                document.webkitExitFullscreen();
+            } else if (document.msExitFullscreen) {
+                document.msExitFullscreen();
+            }
+
+            isFullscreen = false;
+        }
+
+        function tfsFram() {
+            if (isFullscreen) {
+                cfsFram();
+            } else {
+                fsFram();
+            }
+        }
+
+        setTimeout(() => {
+            if (typeof eruda !== "undefined") {
+                eruda.destroy();
+            }
+        }, 30);
+
+        function ntFram() {
+            window.open(fram.src);
+        }
+
+        function toggleDropdown() {
+            const add = document.getElementById("add-bookmark");
+            const name = document.getElementById("bookmark-name");
+
+            add.style.display =
+                add.style.display === "inline-block" ? "none" : "inline-block";
+
+            name.style.display =
+                name.style.display === "inline-block" ? "none" : "inline-block";
+        }
+
+        function toggleTopBar() {
+            const topSpot = document.querySelector(".top-spot");
+            const toggleIcon = document.getElementById("toggleIcon");
+            const currentHeight = window.getComputedStyle(topSpot).height;
+
+            if (currentHeight === "2.5vh" || topSpot.style.height === "2.5vh") {
+                topSpot.style.height = "0vh";
+                toggleIcon.src = "/data/images/svg/expand.svg";
+            } else {
+                topSpot.style.height = "2.5vh";
+                toggleIcon.src = "/data/images/svg/collapse.svg";
+            }
+        }
+
+        document.getElementById("toggleTopBar").addEventListener(
+            "click",
+            toggleTopBar
+        );
+
+        const bookmarkList = document.getElementById("bookmark-list");
+        const addBookmarkButton = document.getElementById("add-bookmark");
+        const bookmarkNameInput = document.getElementById("bookmark-name");
+
+        function loadBookmarks() {
+            const bookmarks =
+                JSON.parse(localStorage.getItem("bookmarks")) || [];
+
+            bookmarks.forEach(bookmark => {
+                addBookmarkToList(bookmark.name, bookmark.url);
+            });
+        }
+
+        function addBookmarkToList(name, url) {
+            const listItem = document.createElement("li");
+            listItem.textContent = name;
+
+            const removeButton = document.createElement("button");
+            removeButton.textContent = "×";
+
+            removeButton.onclick = event => {
+                event.stopPropagation();
+
+                const bookmarks =
+                    JSON.parse(localStorage.getItem("bookmarks")) || [];
+
+                localStorage.setItem(
+                    "bookmarks",
+                    JSON.stringify(
+                        bookmarks.filter(
+                            bookmark =>
+                                !(bookmark.name === name &&
+                                  bookmark.url === url)
+                        )
+                    )
+                );
+
+                listItem.remove();
+            };
+
+            listItem.appendChild(removeButton);
+
+            listItem.onclick = () => {
+                address.value = url;
+                form.dispatchEvent(new Event("submit"));
+            };
+
+            bookmarkList.appendChild(listItem);
+        }
+
+        addBookmarkButton.addEventListener("click", () => {
+            const name = bookmarkNameInput.value;
+            const url = address.value;
+
+            if (name && url) {
+                const bookmarks =
+                    JSON.parse(localStorage.getItem("bookmarks")) || [];
+
+                bookmarks.push({ name, url });
+
+                localStorage.setItem(
+                    "bookmarks",
+                    JSON.stringify(bookmarks)
+                );
+
+                addBookmarkToList(name, url);
+                bookmarkNameInput.value = "";
+            } else {
+                alert("Please enter a name and ensure the URL is set.");
+            }
+        });
+
+        loadBookmarks();
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const searchBox = document.getElementById("uv-address");
+            const suggestionsBox =
+                document.getElementById("suggestions-box");
+
+            searchBox.addEventListener("input", async () => {
+                const query = searchBox.value.trim();
+
+                if (!query) {
+                    suggestionsBox.style.display = "none";
+                    return;
+                }
+
+                try {
+                    const response =
+                        await fetch(`/go=${encodeURIComponent(query)}`);
+
+                    const data = await response.json();
+
+                    suggestionsBox.innerHTML = "";
+
+                    if (data.length > 0) {
+                        suggestionsBox.style.display = "block";
+
+                        data.forEach(suggestion => {
+                            const item =
+                                document.createElement("div");
+
+                            item.classList.add("suggestion-item");
+                            item.textContent = suggestion.phrase;
+
+                            item.addEventListener("click", () => {
+                                searchBox.value = suggestion.phrase;
+                                suggestionsBox.style.display = "none";
+                            });
+
+                            suggestionsBox.appendChild(item);
+                        });
+                    } else {
+                        suggestionsBox.style.display = "none";
+                    }
+                } catch {
+                    suggestionsBox.style.display = "none";
+                }
+            });
+        });
+
+        initScramjet().catch(console.error);
     </script>
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "pbldbrga67");
-</script>
-    <script type="text/javascript">setIframe();</script>
-    <script src="./data/js/win.js"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-79VER3NKGP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag("js", new Date());
+        gtag("config", "G-79VER3NKGP");
+    </script>
+
+    <script>
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){
+                (c[a].q=c[a].q||[]).push(arguments)
+            };
+            t=l.createElement(r);
+            t.async=1;
+            t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];
+            y.parentNode.insertBefore(t,y);
+        })(window,document,"clarity","script","pbldbrga67");
+    </script>
+
     <script src="./data/js/loading.js"></script>
     <script src="./data/js/urlupd.js"></script>
     <script src="./data/js/theme.js"></script>

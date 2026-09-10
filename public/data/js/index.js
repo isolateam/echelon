@@ -1,162 +1,76 @@
 "use strict";
 
-/**
- * @type {HTMLFormElement}
- */
 const form = document.getElementById("uv-form");
-/**
- * @type {HTMLInputElement}
- */
 const address = document.getElementById("uv-address");
-/**
- * @type {HTMLInputElement}
- */
 const searchEngine = document.getElementById("uv-search-engine");
-/**
- * @type {HTMLParagraphElement}
- */
-const error = document.getElementById("uv-error");
-/**
- * @type {HTMLPreElement}
- */
-const errorCode = document.getElementById("uv-error-code");
 
-const input = document.querySelector("input");
+let controller = null;
 
-const swConfig = {
-  'uv': { file: '/uv/sw.js', config: __uv$config },
-};
+async function initScramjet() {
+    await navigator.serviceWorker.register("/sw.js", { scope: "/" });
 
-let swConfigSettings; // Define swConfigSettings globally
-
-function registerSW() {
-  if (localStorage.getItem("registerSW") === "true") {
-    const proxySetting = localStorage.getItem('proxy') || 'uv';
-    const { file: swFile, config } = swConfig[proxySetting];
-    swConfigSettings = config; // Assign swConfigSettings here for global access
-
-    navigator.serviceWorker.register(swFile, { scope: config.prefix })
-      .then((registration) => {
-        console.log('ServiceWorker registration successful with scope: ', registration.scope);
-      })
-      .catch((error) => {
-        console.error('ServiceWorker registration failed:', error);
-      });
-  }
-}
-
-// crypts class definition
-class crypts {
-  static encode(str) {
-    return encodeURIComponent(
-      str
-        .toString()
-        .split("")
-        .map((char, ind) => (ind % 2 ? String.fromCharCode(char.charCodeAt() ^ 2) : char))
-        .join("")
-    );
-  }
-
-  static decode(str) {
-    if (str.charAt(str.length - 1) === "/") {
-      str = str.slice(0, -1);
+    if (!navigator.serviceWorker.controller) {
+        await new Promise(resolve => {
+            navigator.serviceWorker.addEventListener("controllerchange", resolve, { once: true });
+        });
     }
-    return decodeURIComponent(
-      str
-        .split("")
-        .map((char, ind) => (ind % 2 ? String.fromCharCode(char.charCodeAt() ^ 2) : char))
-        .join("")
-    );
-  }
+
+    const serviceworker = navigator.serviceWorker.controller;
+
+    const wispUrl = `${location.protocol === "https:" ? "wss:" : "ws:"}//${location.host}/wisp/`;
+
+    const { default: EpoxyClient } = await import("/epoxy/index.mjs");
+    const transport = new EpoxyClient({ wisp: wispUrl });
+
+    controller = new $scramjetController.Controller({
+        serviceworker,
+        transport,
+        config: {
+            prefix: "/~/sj/",
+            scramjetPath: "/scram/scramjet.js",
+            wasmPath: "/scram/scramjet.wasm",
+            injectPath: "/controller/controller.inject.js"
+        }
+    });
+
+    await controller.wait();
 }
 
 function search(input) {
-  input = input.trim();
-  const searchTemplate = localStorage.getItem('engine') || 'https://google.com/search?q=%s';
+    input = input.trim();
 
-  try {
-    return new URL(input).toString();
-  } catch (err) {
+    const searchTemplate =
+        localStorage.getItem("engine") || "https://google.com/search?q=%s";
+
     try {
-      const url = new URL(`http://${input}`);
-      if (url.hostname.includes(".")) {
-        return url.toString();
-      }
-      throw new Error('Invalid hostname');
-    } catch (err) {
-      return searchTemplate.replace("%s", encodeURIComponent(input));
+        return new URL(input).toString();
+    } catch {
+        try {
+            const url = new URL(`http://${input}`);
+
+            if (url.hostname.includes(".")) {
+                return url.toString();
+            }
+
+            throw new Error();
+        } catch {
+            return searchTemplate.replace("%s", encodeURIComponent(input));
+        }
     }
-  }
 }
 
 function launch(val) {
-  if (!val) {
-    console.error("Invalid URL input: value is undefined or empty.");
-    return;
-  }
+    if (!val) return;
 
-  if ('serviceWorker' in navigator) {
-    const proxySetting = localStorage.getItem('proxy') || 'uv';
-    const { file: swFile, config } = swConfig[proxySetting];
-    swConfigSettings = config; // Ensure swConfigSettings is set
+    const url = search(val);
 
-    navigator.serviceWorker.register(swFile, { scope: config.prefix })
-      .then((registration) => {
-        console.log('ServiceWorker registration successful with scope: ', registration.scope);
-        let url = val.trim();
-        if (typeof ifUrl === 'function' && !ifUrl(url)) {
-          url = search(url);
-        } else if (!(url.startsWith("https://") || url.startsWith("http://"))) {
-          url = "https://" + url;
-        }
-
-        const encodedUrl = config.prefix + crypts.encode(url);
-        sessionStorage.setItem("encodedUrl", encodedUrl);
-        const browseSetting = localStorage.getItem('browse');
-        const browseUrls = {
-          "go": "/",
-          "norm": encodedUrl
-        };
-        const urlToNavigate = browseUrls["norm"];
-        location.href = urlToNavigate;
-      })
-      .catch((error) => {
-        console.error('ServiceWorker registration failed:', error);
-      });
-  }
+    sessionStorage.setItem("encodedUrl", url);
+    location.href = `/null?url=${encodeURIComponent(url)}`;
 }
 
-function ifUrl(val = "") {
-  const urlPattern = /^(http(s)?:\/\/)?([\w-]+\.)+[\w]{2,}(\/.*)?$/;
-  return urlPattern.test(val);
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("uv-form");
-
-  if (form) {
-    form.addEventListener('submit', async (event) => {
-      event.preventDefault();
-
-      if (!swConfigSettings) {
-        console.error("Service worker configuration not found.");
-        return;
-      }
-
-      const encodedUrl = swConfigSettings.prefix + crypts.encode(search(address.value));
-      sessionStorage.setItem("encodedUrl", encodedUrl);
-      const browseSetting = localStorage.getItem('browse');
-      const browseUrls = {
-        "go": "/",
-        "norm": encodedUrl
-      };
-
-      const urlToNavigate = browseUrls[browseSetting] || "/";
-      location.href = urlToNavigate;
-    });
-  } else {
-    console.error("Form element with ID 'uv-form' not found.");
-  }
-
-  registerSW();
+form?.addEventListener("submit", event => {
+    event.preventDefault();
+    launch(address.value);
 });
+
+initScramjet().catch(console.error);

@@ -10,8 +10,11 @@
   "author": "",
   "license": "LGPL-2.0-only",
   "dependencies": {
-    "@titaniumnetwork-dev/ultraviolet": "^3.1.0",
-    "@tomphttp/bare-server-node": "^2.0.5",
+    "@mercuryworkshop/epoxy-transport": "^3.0.1",
+    "@mercuryworkshop/scramjet": "^2.0.67-alpha.2",
+    "@mercuryworkshop/scramjet-controller": "^0.0.14",
+    "@mercuryworkshop/scramjet-utils": "^0.0.3",
+    "@mercuryworkshop/wisp-js": "^0.4.1",
     "chalk": "^5.3.0",
     "compression": "^1.7.4",
     "dotenv": "^16.4.7",
@@ -21,11 +24,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bachwebsite/echelon.git"
+    "url": "git+https://github.com/isolateam/echelon.git"
   },
   "bugs": {
-    "url": "https://github.com/bachwebsite/echelon/issues"
+    "url": "https://github.com/isolateam/echelon/issues"
   },
-  "homepage": "https://github.com/bachwebsite/echelon#readme",
+  "homepage": "https://github.com/isolateam/echelon#readme",
   "description": ""
 }

@@ -1,7 +1,8 @@
-fetch('https://cdn.jsdelivr.net/gh/bachwebsite/echelon/public/data/json/games.json')
+fetch('/data/json/games.json')
   .then(response => response.json())
   .then(data => {
     const gameContainer = document.body;
+
     data.games.forEach(game => {
       const div = document.createElement('div');
       div.className = 'bubbly-div';
@@ -13,13 +14,18 @@ fetch('https://cdn.jsdelivr.net/gh/bachwebsite/echelon/public/data/json/games.js
       link.textContent = game.name;
       link.href = '#';
       link.style.cursor = 'pointer';
+
       if (game.directory.includes('data/g')) {
         link.href = game.directory;
       } else {
-        link.onclick = () => launch(game.directory);
+        link.onclick = event => {
+          event.preventDefault();
+          launch(game.directory);
+        };
       }
+
       div.onclick = () => link.click();
-      
+
       div.appendChild(img);
       div.appendChild(link);
       gameContainer.appendChild(div);
@@ -27,3 +33,7 @@ fetch('https://cdn.jsdelivr.net/gh/bachwebsite/echelon/public/data/json/games.js
   })
   .catch(error => console.error('Error loading games:', error));
 
+function launch(url) {
+  sessionStorage.setItem('gameUrl', url);
+  window.location.href = '/null';
+}

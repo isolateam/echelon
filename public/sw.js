@@ -1,17 +1,11 @@
-importScripts("./uv/uv.bundle.js");
-importScripts("./uv/uv.config.js");
-importScripts("./uv/uv.sw.js");
+importScripts("/controller/controller.sw.js");
 
-const uv = new UVServiceWorker();
+self.addEventListener("activate", event => {
+    event.waitUntil(self.clients.claim());
+});
 
-self.addEventListener("fetch", (event) => {
-  event.respondWith(
-    (async function () {
-      if (event.request.url.startsWith(location.origin + "/service/")) {
-        return await uv.fetch(event);
-      }
-
-      return await fetch(event.request);
-    })()
-  );
+self.addEventListener("fetch", event => {
+    if ($scramjetController.shouldRoute(event)) {
+        event.respondWith($scramjetController.route(event));
+    }
 });

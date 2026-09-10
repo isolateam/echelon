@@ -1,15 +1,15 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/data/images/favicon-transparent.png" />
-    <link rel="shortcut icon" href="/data/images/favicon-transparent.png" />
+    <link rel="icon" href="/data/images/favicon-transparent.png">
+    <link rel="shortcut icon" href="/data/images/favicon-transparent.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel='stylesheet' href='/data/css/g.css'>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5808709323793475" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/data/css/g.css">
     <title>breakium - Games</title>
 </head>
 <body>
@@ -21,7 +21,6 @@
                     <img src="/data/images/svg/game.svg" alt="Games">
                     <span>Games</span>
                 </a>
-                
                 <a href="/null" class="nav-item">
                     <img src="/data/images/svg/search.svg" alt="Search">
                     <span>Search</span>
@@ -41,7 +40,7 @@
             </h1>
             <p class="page-subtitle">Discover and play amazing games</p>
         </section>
-        
+
         <section class="search-container">
             <div class="search-wrapper">
                 <img src="/data/images/svg/search.svg" alt="Search" class="search-icon">
@@ -62,81 +61,77 @@
         <img src="/data/images/discord-2-xxl.png" alt="Discord">
     </a>
 
-    <script type="text/javascript">
+    <script>
         (function(c,l,a,r,i,t,y){
             c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
             t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
             y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "pbldbrga67");
+        })(window,document,"clarity","script","pbldbrga67");
     </script>
 
-    <script src="/uv/uv.bundle.js"></script>
-    <script src="/uv/uv.config.js"></script>
-    <script src="/uv/uv.sw.js"></script>
-    <script src="/data/js/index.js"></script>
     <script src="/data/js/loading.js"></script>
     <script src="/data/js/games.js"></script>
     <script src="/data/g/gloader.js"></script>
     <script src="/data/js/theme.js"></script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const searchInput = document.getElementById('search');
-            const gamesGrid = document.getElementById('gamesGrid');
-            const clearSearchBtn = document.getElementById('clearSearch');
-            const noResultsDiv = document.getElementById('noResults');
+        document.addEventListener("DOMContentLoaded", () => {
+            const searchInput = document.getElementById("search");
+            const clearSearchBtn = document.getElementById("clearSearch");
+            const noResultsDiv = document.getElementById("noResults");
             let searchTimeout;
 
             function filterDivs() {
                 const searchQuery = searchInput.value.toLowerCase();
-                const divs = document.getElementsByClassName('bubbly-div');
+                const divs = document.getElementsByClassName("bubbly-div");
                 let visibleCount = 0;
 
                 Array.from(divs).forEach(div => {
-                    const gameLink = div.querySelector('a');
+                    const gameLink = div.querySelector("a");
+
                     if (gameLink) {
                         const gameName = gameLink.innerText.toLowerCase();
                         const isVisible = gameName.includes(searchQuery);
 
-                        div.style.display = isVisible ? 'inline-block' : 'none';
+                        div.style.display = isVisible ? "inline-block" : "none";
+
                         if (isVisible) visibleCount++;
                     }
                 });
 
-                noResultsDiv.style.display = visibleCount === 0 && searchQuery ? 'block' : 'none';
-                clearSearchBtn.style.display = searchQuery ? 'inline-block' : 'none';
+                noResultsDiv.style.display =
+                    visibleCount === 0 && searchQuery ? "block" : "none";
+
+                clearSearchBtn.style.display =
+                    searchQuery ? "inline-block" : "none";
             }
 
-            searchInput.addEventListener('input', function() {
+            searchInput.addEventListener("input", () => {
                 clearTimeout(searchTimeout);
-                searchTimeout = setTimeout(() => {
-                    filterDivs();
-                }, 150);
+                searchTimeout = setTimeout(filterDivs, 150);
             });
 
-            clearSearchBtn.addEventListener('click', function() {
-                searchInput.value = '';
+            clearSearchBtn.addEventListener("click", () => {
+                searchInput.value = "";
                 filterDivs();
                 searchInput.focus();
             });
 
-            searchInput.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
-                    this.value = '';
+            searchInput.addEventListener("keydown", e => {
+                if (e.key === "Escape") {
+                    searchInput.value = "";
                     filterDivs();
                 }
             });
 
-            document.addEventListener('keydown', function(e) {
-                if ((e.ctrlKey || e.metaKey) && e.key === 'f') {
+            document.addEventListener("keydown", e => {
+                if ((e.ctrlKey || e.metaKey) && e.key === "f") {
                     e.preventDefault();
                     searchInput.focus();
                 }
             });
 
-            setTimeout(() => {
-                filterDivs(); 
-            }, 1000);
+            setTimeout(filterDivs, 1000);
         });
     </script>
 </body>

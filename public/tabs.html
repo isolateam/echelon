@@ -4,62 +4,117 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="./data/images/favicon-transparent.png" />
-        <link rel="shortcut icon" href="./data/images/favicon-transparent.png" />
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5808709323793475"
+    <link rel="shortcut icon" href="./data/images/favicon-transparent.png" />
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5808709323793475"
      crossorigin="anonymous"></script>
     <title>Tabs</title>
     <style>
       @font-face {
         font-family: "FONT2";
-        src: url("/data/fonts/Tempura.ttf");
+        src: url("/data/fonts/AlteHaasGroteskRegular.ttf");
       }
+
       * {
-        background: linear-gradient(135deg, #1a1a2e, #16213e) no-repeat center center fixed;
-        transition: all 0.4s ease-in-out;
-        animation: fadeIn 1.8s ease;
-        z-index: 99;
         font-family: "FONT2", sans-serif;
+        box-sizing: border-box;
       }
-      @keyframes fadeIn {
-          from {
-              opacity: 0;
-              transform: translateY(30px);
-          }
-          to {
-              opacity: 1;
-              transform: translateY(0);
-          }
-      }
-      #x {
-        margin-left: 10px;
-      }
-      button {
-        background: #1f44ab;
-        width: 30px;
-        height: 30px;
-        border: 1px solid #061640;
-        font-size: 20px;
-        margin-bottom: -100px;
-        border-top-left-radius: 7px;
-        border-top-right-radius: 7px;
-        border-bottom: none;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        transition: 0.5s ease;
-        background-size: 16px;
-        background-repeat: no-repeat;
-        background-position: center;
+
+      html, body {
+        height: 100%;
+        margin: 0;
       }
 
       body {
-        background-color: #06194d;
-        font-family: Arial, sans-serif;
+        background-color: #101114;
+        color: #ececee;
         transition: background-color 0.5s ease;
       }
 
+      .container {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+      }
+
+      #tabcontainer {
+        width: 100%;
+        height: 40px;
+        background: #141517;
+        padding: 6px 8px 0 8px;
+        box-sizing: border-box;
+        position: relative;
+        z-index: 2;
+      }
+
+      #tabs {
+        display: flex;
+        align-items: flex-end;
+        gap: 4px;
+        height: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+      }
+
+      #tabs::-webkit-scrollbar {
+        height: 3px;
+      }
+
+      #tabs::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 3px;
+      }
+
+      button {
+        background: rgba(255, 255, 255, 0.04);
+        color: rgba(255, 255, 255, 0.85);
+        width: 30px;
+        height: 32px;
+        border: 1px solid transparent;
+        border-bottom: none;
+        font-size: 12.5px;
+        margin-bottom: 0;
+        border-top-left-radius: 9px;
+        border-top-right-radius: 9px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        transition: background 0.15s ease, color 0.15s ease;
+        background-repeat: no-repeat;
+        background-position: center;
+        cursor: pointer;
+        flex-shrink: 0;
+      }
+
+      button:hover {
+        background-color: rgba(255, 255, 255, 0.09);
+        box-shadow: none;
+        color: #fff;
+      }
+
+      #tab {
+        height: 32px;
+        min-width: 160px;
+        max-width: 220px;
+        width: auto;
+        margin: 0;
+        padding-left: 26px;
+        background-size: 14px;
+        background-position: 10px center;
+      }
+
+      #x,
+      #plus {
+        min-width: 30px;
+      }
+
+      #x {
+        margin-left: 10px;
+      }
+
       .active {
-        background-color: #002ba2;
+        background-color: #24262b !important;
+        color: #fff;
+        border-color: rgba(255, 255, 255, 0.08);
         position: relative;
         z-index: 1;
       }
@@ -70,49 +125,47 @@
         top: 0px;
         left: -1px;
         right: -1px;
-        bottom: 0px;
-        border: 2px solid #4a70d7;
-        border-bottom: none;
-        border-radius: 5px;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
+        bottom: -1px;
+        border: none;
+        border-radius: 0;
+      }
+
+      .active::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -1px;
+        height: 2px;
+        background: #7aa2ff;
+        border-radius: 2px;
       }
 
       iframe {
-        width: 99vw;
-        height: 95vh;
+        width: 100vw;
+        height: calc(100vh - 40px);
         border: none;
-        border-radius: 15px;
+        border-radius: 0;
         z-index: 0;
         position: absolute;
+        top: 40px;
+        left: 0;
         display: none;
+        background: #101114;
       }
 
       .active-iframe {
         display: block;
-        outline: 2px solid #5275d3;
-      }
-      #tab {
-        height: 30px;
-        min-width: 130px;
-        max-width: 300px;
-        margin: 0;
-        padding-left: 25px;
-        background-size: 16px;
-        background-repeat: no-repeat;
-        background-position: 5px center;
+        outline: none;
       }
 
-      button:hover {
-        background-color: #4b6ece;
-        box-shadow: 0px 5px 5px #4b6ece;
-      }
       #icon {
         width: 16px;
         height: 16px;
         vertical-align: middle;
         margin-right: 5px;
-      }    </style>
+      }
+    </style>
   </head>
   <body>
     <div class="container">

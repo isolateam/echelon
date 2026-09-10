@@ -9,6 +9,11 @@
   ],
   "games": [
     {
+      "name": "Balatro",
+    "directory": "https://webalatro2.vercel.app/",
+      "image": "./data/images/games/balatro.png"
+    },
+    {
       "name": "Stein World",
     "directory": "https://stein.world",
       "image": "./data/images/games/steinworld.png"

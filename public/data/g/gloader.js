@@ -1,87 +1,80 @@
+
 fetch('/data/json/games.json')
-  .then(response => response.json())
+  .then(r => r.json())
   .then(data => {
-    const gameContainer = document.body;
-
+    const gc = document.body;
     data.games.forEach(game => {
-      const div = document.createElement('div');
-      div.className = 'bubbly-div';
+      const d = document.createElement('div');
+      d.className = 'bubbly-div';
 
-      const img = document.createElement('img');
-      img.src = game.image;
+      const i = document.createElement('img');
+      i.src = game.image;
 
-      const link = document.createElement('a');
-      link.textContent = game.name;
-      link.href = '#';
-      link.style.cursor = 'pointer';
+      const a = document.createElement('a');
+      a.textContent = game.name;
+      a.href = '#';
+      a.style.cursor = 'pointer';
 
-      link.onclick = event => {
-        event.preventDefault();
-        event.stopPropagation();
+      a.onclick = e => {
+        e.preventDefault();
+        e.stopPropagation();
         launch(game.directory);
       };
 
-      div.onclick = event => {
-        if (event.target === link) return;
-        launch(game.directory);
+      d.onclick = e => {
+        if (e.target !== a) launch(game.directory);
       };
 
-      div.appendChild(img);
-      div.appendChild(link);
-      gameContainer.appendChild(div);
+      d.append(i, a);
+      gc.appendChild(d);
     });
   })
-  .catch(error => console.error('Error loading games:', error));
+  .catch(e => console.error('error loading games:', e));
 
 function launch(url) {
-  sessionStorage.setItem('gameUrl', url);
+  const old = document.getElementById("game-overlay");
+  if (old) old.remove();
 
-  const oldOverlay = document.getElementById('game-overlay');
-  if (oldOverlay) oldOverlay.remove();
+  const o = document.createElement("div");
+  o.id = "game-overlay";
 
-  const overlay = document.createElement('div');
-  overlay.id = 'game-overlay';
+  const m = document.createElement("div");
+  m.id = "game-modal";
 
-  const modal = document.createElement('div');
-  modal.id = 'game-modal';
+  const f = document.createElement("iframe");
+  f.src = "/null?game=1";
+  f.style.cssText = "width:100%;height:100%;border:0";
 
-  const iframe = document.createElement('iframe');
-  iframe.src = '/null';
-  iframe.style.width = '100%';
-  iframe.style.height = '100%';
-  iframe.style.border = '0';
+  const fs = document.createElement("button");
+  fs.textContent = "⛶";
+  fs.id = "game-fullscreen";
 
-  const fullscreen = document.createElement('button');
-  fullscreen.textContent = '⛶';
-  fullscreen.id = 'game-fullscreen';
+  const c = document.createElement("button");
+  c.textContent = "X";
+  c.id = "game-close";
 
-  const close = document.createElement('button');
-  close.textContent = 'X';
-  close.id = 'game-close';
+  fs.onclick = e => {
+    e.stopPropagation();
+    document.fullscreenElement ? document.exitFullscreen() : m.requestFullscreen();
+  };
 
-  fullscreen.onclick = event => {
-    event.stopPropagation();
+  c.onclick = e => {
+    e.stopPropagation();
+    o.remove();
+  };
 
-    if (!document.fullscreenElement) {
-      modal.requestFullscreen();
-    } else {
-      document.exitFullscreen();
+  m.append(f, fs, c);
+  o.appendChild(m);
+  document.body.appendChild(o);
+
+  f.onload = () => {
+    try {
+      f.contentWindow.document.getElementById("fram").src = url;
+    } catch (e) {
+      console.error(e);
     }
   };
 
-  close.onclick = event => {
-    event.stopPropagation();
-    overlay.remove();
-    sessionStorage.removeItem('gameUrl');
-  };
-
-  modal.appendChild(iframe);
-  modal.appendChild(fullscreen);
-  modal.appendChild(close);
-  overlay.appendChild(modal);
-  document.body.appendChild(overlay);
-
-  requestAnimationFrame(() => {
-    overlay.classList.add('show');
-  });
+  requestAnimationFrame(() => o.classList.add("show"));
 }
+

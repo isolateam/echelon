@@ -406,7 +406,39 @@ body::before {
     width: 24px;
     height: 24px;
 }
+body.dark-theme {
+    --primary-gradient: linear-gradient(135deg, #3a3a3a 0%, #181818 100%);
+    --dark-gradient: linear-gradient(135deg, #050505 0%, #0d0d0d 50%, #151515 100%);
+    --glass-bg: rgba(255, 255, 255, 0.06);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.65);
+    --accent-blue: #bdbdbd;
+    --accent-purple: #888888;
+    --game-card-bg: rgba(255, 255, 255, 0.05);
+    --game-card-hover: rgba(255, 255, 255, 0.1);
+}
 
+body.dark-theme::before {
+    background:
+        radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.025) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.02) 0%, transparent 50%);
+}
+
+body.dark-theme .title-games {
+    background: linear-gradient(135deg, #ffffff, #888888);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+body.dark-theme .discord-link {
+    background: #181818;
+}
+
+body.dark-theme .discord-link:hover {
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
+}
 
 body.light-theme {
     --dark-gradient: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);

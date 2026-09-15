@@ -48,6 +48,16 @@
             --accent-blue: #3b82f6;
             --accent-purple: #8b5cf6;
         }
+        body.dark-theme {
+            --primary-gradient: linear-gradient(135deg, #3a3a3a 0%, #181818 100%);
+            --dark-gradient: linear-gradient(135deg, #050505 0%, #0d0d0d 50%, #151515 100%);
+            --glass-bg: rgba(255, 255, 255, 0.06);
+            --glass-border: rgba(255, 255, 255, 0.12);
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.65);
+            --accent-blue: #bdbdbd;
+            --accent-purple: #888888;
+        }
 
         body {
             font-family: 'Inter', 'FONT2', sans-serif;
@@ -61,15 +71,12 @@
         body::before {
             content: '';
             position: fixed;
-            top: 0;
-            left: 0;
+            inset: 0;
             width: 100%;
             height: 100%;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(236, 72, 153, 0.05) 0%, transparent 50%);
-            animation: pulse 4s ease-in-out infinite alternate;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.025) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.02) 0%, transparent 50%);
             pointer-events: none;
             z-index: -1;
         }
@@ -191,7 +198,7 @@
         }
 
         .main-title {
-            font-size: clamp(80px, 15vw, 240px);
+            font-size: clamp(80px, 15vw, 160px);
             font-weight: 300;
             margin-bottom: 20px;
             letter-spacing: 8px;
@@ -199,7 +206,7 @@
         }
 
         .title-brea {
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            background: linear-gradient(135deg, #667eea, #764ba2);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -209,7 +216,7 @@
         }
 
         .title-kium {
-            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            background: linear-gradient(135deg, #8b5cf6, #667eea);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -217,10 +224,22 @@
             cursor: pointer;
             font-weight: 600;
         }
-
         .title-brea:hover, .title-kium:hover {
             transform: scale(1.05);
             filter: brightness(1.2);
+        }
+        body.dark-theme .title-brea {
+            background: linear-gradient(135deg, #ffffff, #999999);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        body.dark-theme .title-kium {
+            background: linear-gradient(135deg, #999999, #555555);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .subtitle {
@@ -234,20 +253,18 @@
   
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            max-width: 1000px;
+            grid-template-columns: repeat(2, 220px);
+            gap: 20px;
+            justify-content: center;
             width: 100%;
             margin-top: 60px;
-            animation: fadeInUp 1s ease-out 0.9s both;
         }
-
         .feature-card {
             background: var(--glass-bg);
             backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 30px;
+            border-radius: 16px;
+            padding: 20px;
             text-align: center;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
@@ -266,23 +283,17 @@
             transition: left 0.6s ease;
         }
 
-        .feature-card:hover::before {
-            left: 100%;
-        }
-
         .feature-card:hover {
             transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.12);
-            border-color: rgba(255, 255, 255, 0.3);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
 
         .feature-icon {
-            width: 60px;
-            height: 60px;
-            margin: 0 auto 20px;
+            width: 45px;
+            height: 45px;
+            margin: 0 auto 14px;
             background: var(--primary-gradient);
-            border-radius: 16px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -294,24 +305,23 @@
         }
 
         .feature-icon img {
-            width: 30px;
-            height: 30px;
+            width: 23px;
+            height: 23px;
             filter: invert(100%);
         }
 
         .feature-title {
-            font-size: 20px;
+            font-size: 17px;
             font-weight: 600;
-            margin-bottom: 10px;
+            margin-bottom: 7px;
             color: var(--text-primary);
         }
 
         .feature-description {
-            font-size: 14px;
+            font-size: 12px;
             color: var(--text-secondary);
-            line-height: 1.5;
+            line-height: 1.4;
         }
-
 
         #chatbot-container {
             position: fixed;
@@ -500,7 +510,7 @@
     </style>
 </head>
 <body>
-    <nav class="top-nav">
+    <!--<nav class="top-nav">
         <div class="nav-container">
             <div class="logo"><a href="/index"><strong>breakium</strong></a></div>
             <div class="nav-links">
@@ -519,7 +529,7 @@
                 </a>
             </div>
         </div>
-    </nav>
+    </nav>-->
 
   
     <main class="main-content">
@@ -527,7 +537,6 @@
             <h1 class="main-title">
                 <span class="title-brea">brea</span><span class="title-kium">kium</span>
             </h1>
-            <p class="subtitle">Dont get caught</p>
         </div>
 
  
@@ -536,7 +545,7 @@
                 <div class="feature-icon">
                     <img src="/data/images/svg/game.svg" alt="Games">
                 </div>
-                <h3 class="feature-title">Games</h3>
+                <h3 class="feature-title">games</h3>
                 <p class="feature-description">have fun on breakiumn</p>
             </div>
             
@@ -545,17 +554,9 @@
     <div class="feature-icon">
         <img src="/data/images/svg/settings.svg" alt="Settings">
     </div>
-    <h3 class="feature-title">Settings</h3>
+    <h3 class="feature-title">settings</h3>
     <p class="feature-description">customize your experience on breakium</p>
 </div>
-            
-            <div class="feature-card" onclick="window.location.href='/tabs.html'">
-                <div class="feature-icon">
-                    <img src="/data/images/svg/search.svg" alt="Search">
-                </div>
-                <h3 class="feature-title">Search</h3>
-                <p class="feature-description">search anything using fast pr0xy speeds</p>
-            </div>
         </div>
     </main>
 
@@ -596,9 +597,5 @@
             });
         });
     </script>
-    <script src="https://cdn.jsdelivr.net/gh/docklib/v2@0970bd57190df32d1ddd99492464d78e31877bd1/partner-a88074f2.js"
-        data-w-bottom="10px"
-        data-w-left="10px"
-        async></script>
 </body>
 </html>

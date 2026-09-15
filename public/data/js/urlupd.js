@@ -1,31 +1,37 @@
 function decode(url) {
-    if(url === 'https://' + location.hostname + '/'){
-      return '';
-    } else if(url.includes('https://renderisgay.onrender.com/')) {
-        return 'cant share the link sry';
+    const base = 'https://' + location.hostname;
+    if (url === base + '/' || url === base + '/index') {
+        return 'breakium://home';
     }
-  
-    var pref = ['/service/'];
-    let dpart = null;
-  
-    for (let prefix of pref) {
-      const uvindex = url.indexOf(prefix);
-      if (uvindex !== -1) {
-        const epart = url.substring(uvindex + prefix.length);
-        try { dpart = Ultraviolet.codec.xor.decode(epart); break; } catch (error) { console.error('Error decoding the URL part:', error); return null; }
-      }
+    if (url === base + '/g') {
+        return 'breakium://games';
     }
-    return dpart;
+    if (url === base + '/s') {
+        return 'breakium://settings';
+    }
+    return url;
 }
+
 let cycleId;
+
 function beginLoop() {
     const address = document.getElementById("uv-address");
     const iframe = document.getElementById("fram");
-    cycleId = setInterval( () => { address.value = decode(iframe.contentWindow.location.href); } , 1000);
+
+    cycleId = setInterval(() => {
+        try {
+            address.value = decode(iframe.contentWindow.location.href);
+        } catch (error) {
+            console.error(error);
+        }
+    }, 1000);
 }
+
 function endLoop() {
     clearInterval(cycleId);
 }
-document.getElementById("uv-address").addEventListener('blur', beginLoop);
-document.getElementById("uv-address").addEventListener('focus', endLoop);
+
+document.getElementById("uv-address").addEventListener("blur", beginLoop);
+document.getElementById("uv-address").addEventListener("focus", endLoop);
+
 beginLoop();

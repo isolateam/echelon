@@ -26,7 +26,10 @@
 <body>
     <div class="top-spot">
         <div class="top-spot-enclosure">
-            <a onclick="window.location.href = '/index'">
+            <div class="buttin" id="toggleTopBar">
+                <img src="/data/images/svg/collapse.svg" style="width: 26px;" id="toggleIcon">
+            </div>
+            <a onclick="window.location.href = '/null'">
                 <div class="buttin"><img id="svgg" style="width: 35px;" src="/data/images/svg/home.svg"></div>
             </a>
             <a onclick="bFram()">
@@ -52,12 +55,9 @@
             <a onclick="oFram()">
                 <div class="buttin"><img style="margin-top: 4px;" src="/data/images/svg/idk.png"></div>
             </a>
-            <a onclick="consol()">
+            <!--<a onclick="consol()">
                 <div class="buttin"><img id="svgg" style="margin-top: 4px;" src="/data/images/svg/inspect.svg"></div>
-            </a>
-            <a onclick="window.location.href='/tabs.html'">
-                <div class="buttin"><img id="svg" style="margin-top: 4px;" src="/data/images/plus-5-xxl.png"></div>
-            </a>
+            </a>-->
             <a onclick="toggleDropdown()">
                 <div class="buttin"><img style="margin-top: 4px;" src="./data/images/star.png"></div>
             </a>
@@ -81,9 +81,7 @@
             </div>
         </div>
 
-        <div class="buttin" id="toggleTopBar">
-            <img src="/data/images/svg/collapse.svg" style="width: 26px;" id="toggleIcon">
-        </div>
+        
     </div>
 
     <iframe src="/index" id="fram"></iframe>

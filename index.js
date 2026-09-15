@@ -44,6 +44,7 @@ app.get("/s", (req, res) => res.sendFile(path.join(publicPath, "s.html")));
 app.get("/a", (req, res) => res.sendFile(path.join(publicPath, "a.html")));
 app.get("/null", (req, res) => res.sendFile(path.join(publicPath, "start.html")));
 app.get("/portfolio", (req, res) => res.sendFile(path.join(publicPath, "yesbro.html")));
+app.get("/study", (req, res) => res.sendFile(path.join(publicPath, "tabs.html")));
 
 app.use((req, res) => res.status(404).send("404"));
 

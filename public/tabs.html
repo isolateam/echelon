@@ -99,30 +99,10 @@
         transition: background-color 0.15s ease, color 0.15s ease;
       }
 
-      #tab {
-        height: 32px;
-        min-width: 168px;
-        max-width: 220px;
-        display: block;
-        margin: 0 1px;
-        padding: 0 12px 0 28px;
-        font-size: 12.5px;
-        font-weight: 500;
-        text-align: left;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        background-color: var(--tab-idle);
-        background-repeat: no-repeat;
-        background-position: 10px center;
-        background-size: 14px;
-        border-radius: 8px 8px 0 0;
-        flex-shrink: 0;
-      }
-      #tab:hover {
-        background-color: var(--tab-hover);
-        color: var(--text);
-      }
+      #tab { height: 32px; min-width: 168px; max-width: 220px; display: flex; align-items: center; justify-content: space-between; margin: 0 1px; padding: 0 8px 0 28px; font-size: 12.5px; font-weight: 500; text-align: left; white-space: nowrap; background-color: var(--tab-idle); background-repeat: no-repeat; background-position: 10px center; background-size: 14px; border-radius: 8px 8px 0 0; flex-shrink: 0; }
+      .tab-title { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; }
+      .tab-close { width: 22px; height: 22px; min-width: 22px; margin-left: 6px; border-radius: 50%; font-size: 15px; line-height: 1; color: var(--text-muted); flex-shrink: 0; }
+      .tab-close:hover { background-color: var(--tab-hover); color: var(--text); }
 
       .active {
         background-color: var(--tab-active) !important;
@@ -142,22 +122,8 @@
         border-radius: 2px;
         box-shadow: 0 0 6px 0 rgba(232, 163, 61, 0.55);
       }
-      #x,#plus {
-        width: 28px;
-        height: 28px;
-        min-width: 28px;
-        margin-bottom: 2px;
-        border-radius: 50%;
-        font-size: 15px;
-        line-height: 1;
-        flex-shrink: 0;
-      }
-
-      #x:hover,
-      #plus:hover {
-        background-color: var(--tab-hover);
-        color: var(--text);
-      }
+      #plus { width: 28px; height: 28px; min-width: 28px; margin-bottom: 2px; border-radius: 50%; font-size: 15px; line-height: 1; flex-shrink: 0; }
+      #plus:hover { background-color: var(--tab-hover); color: var(--text); }
 
       #x {
         margin-left: 8px;
@@ -192,69 +158,30 @@
     <div class="container">
       <div id="tabcontainer">
         <div id="tabs">
-          <button id="x">×</button>
           <button id="plus">+</button>
         </div>
       </div>
     </div>
     <script>
-      const tabcontainer = document.getElementById("tabcontainer");
-      const tabs = document.getElementById("tabs");
-      const x = document.getElementById("x");
-      const plus = document.getElementById("plus");
-      let activeTabs = [];
-      let activeIframes = [];
-      function createTab() {
-        const tab = document.createElement("button");
-        const iframe = document.createElement("iframe");
-        const img = document.getElementById("icon");
-        tab.id = "tab";
-        tab.textContent = "Loading..";
-        iframe.src = "/null";
-        setInterval(function () { 
-          tab.textContent = iframe.contentWindow.document.getElementById('fram').contentDocument.title; 
-          if (iframe.contentWindow.document.getElementById('fram').contentDocument.querySelector('link[rel="icon"]')) {
-            tab.style.backgroundImage = `url(${iframe.contentWindow.document.getElementById('fram').contentDocument.querySelector('link[rel="icon"]').href})`;
-          } else {
-            tab.style.backgroundImage = `url(/data/images/tabs/icon.png)`;
-          }
-        }, 1000);
-        tabcontainer.appendChild(iframe);
-        tabs.appendChild(tab);
-        tab.addEventListener("click", function () {
-          activateTab(tab, iframe);
-        });
-        activateTab(tab, iframe);
-      }
-      function activateTab(tab, iframe) {
-        activeTabs.forEach((tab) => tab.classList.remove("active"));
-        activeIframes.forEach((iframe) =>
-          iframe.classList.remove("active-iframe")
-        );
-        activeIframes = activeIframes.filter((item) => item !== iframe);
-        activeTabs = activeTabs.filter((item) => item !== tab);
-        activeTabs.push(tab);
-        activeIframes.push(iframe);
-        tab.classList.add("active");
-        iframe.classList.add("active-iframe");
-      }
-      plus.addEventListener("click", createTab);
-      x.addEventListener("click", function () {
-        const activeTab = activeTabs.pop();
-        const activeIframe = activeIframes.pop();
-        if (activeTab && activeIframe) {
-          activeTab.classList.remove("active");
-          activeIframe.classList.remove("active-iframe");
-          activeIframe.remove();
-          activeTab.remove();
-          if (activeTabs.length > 0) {
-            const lastTab = activeTabs[activeTabs.length - 1];
-            const lastIframe = activeIframes[activeIframes.length - 1];
-            activateTab(lastTab, lastIframe);
-          }
-        }
-      });
-      window.addEventListener("load", createTab);
+    const tc=document.getElementById("tabcontainer"),ts=document.getElementById("tabs"),p=document.getElementById("plus");let at=[],ai=[];
+
+    function createTab(){
+      let t=document.createElement("button"),f=document.createElement("iframe"),c=document.createElement("button"),n=document.createElement("span");
+      t.id="tab";n.className="tab-title";n.textContent="Loading..";c.className="tab-close";c.textContent="×";t.append(n,c);f.src="/null";
+      setInterval(()=>{try{let x=f.contentWindow.document.getElementById("fram");if(!x)return;n.textContent=x.contentDocument.title||"New Tab";let i=x.contentDocument.querySelector('link[rel="icon"]');t.style.backgroundImage=`url(${i?i.href:"/data/images/tabs/icon.png"})`}catch{n.textContent="New Tab";t.style.backgroundImage="url(/data/images/tabs/icon.png)"}},1000);
+      tc.appendChild(f);ts.insertBefore(t,p);t.onclick=()=>a(t,f);c.onclick=e=>{e.stopPropagation();d(t,f)};a(t,f)
+    }
+
+    function a(t,f){
+      at.forEach(x=>x.classList.remove("active"));ai.forEach(x=>x.classList.remove("active-iframe"));
+      at=at.filter(x=>x!=t);ai=ai.filter(x=>x!=f);at.push(t);ai.push(f);t.classList.add("active");f.classList.add("active-iframe")
+    }
+
+    function d(t,f){
+      let w=t.classList.contains("active"),i=at.indexOf(t);if(i>-1){at.splice(i,1);ai.splice(i,1)}t.remove();f.remove();
+      if(w&&at.length)a(at.at(-1),ai.at(-1))
+    }
+    p.onclick=createTab;window.onload=createTab;
     </script>
     
     <script src="./data/js/loading.js"></script>

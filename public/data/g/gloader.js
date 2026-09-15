@@ -31,7 +31,7 @@ fetch('/data/json/games.json')
   })
   .catch(e => console.error('error loading games:', e));
 
-function launch(url) {
+async function launch(url) {
   const old = document.getElementById("game-overlay");
   if (old) old.remove();
 
@@ -42,7 +42,6 @@ function launch(url) {
   m.id = "game-modal";
 
   const f = document.createElement("iframe");
-  f.src = "/null?game=1";
   f.style.cssText = "width:100%;height:100%;border:0";
 
   const fs = document.createElement("button");
@@ -67,13 +66,29 @@ function launch(url) {
   o.appendChild(m);
   document.body.appendChild(o);
 
-  f.onload = () => {
-    try {
-      f.contentWindow.document.getElementById("fram").src = url;
-    } catch (e) {
-      console.error(e);
+  const sw = await navigator.serviceWorker.register("/sw.js", { scope: "/" });
+  if (!navigator.serviceWorker.controller)
+    await new Promise(r => navigator.serviceWorker.addEventListener("controllerchange", r, { once: true }));
+
+  const { default: EpoxyClient } = await import("/epoxy/index.mjs");
+  const wisp = `${location.protocol === "https:" ? "wss:" : "ws:"}//${location.host}/wisp/`;
+  const transport = new EpoxyClient({ wisp });
+
+  const controller = new $scramjetController.Controller({
+    serviceworker: navigator.serviceWorker.controller,
+    transport,
+    config: {
+      prefix: "/~/sj/",
+      scramjetPath: "/scram/scramjet.js",
+      wasmPath: "/scram/scramjet.wasm",
+      injectPath: "/controller/controller.inject.js"
     }
-  };
+  });
+
+  await controller.wait();
+
+  const sj = controller.createFrame(f);
+  sj.go(url);
 
   requestAnimationFrame(() => o.classList.add("show"));
 }

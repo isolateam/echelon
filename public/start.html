@@ -21,7 +21,8 @@
     <script src="/scram/scramjet.js"></script>
     <script src="/controller/controller.api.js"></script>
     <script src="/utils/scramjet-utils.js"></script>
-    <script src="./data/js/eruda.js"></script>
+    <script src="/data/js/games.js"></script>
+    <script src="./data/g/gloader.js"></script>
 </head>
 <body>
     <div class="top-spot">
@@ -164,10 +165,9 @@
             sjFrame = controller.createFrame(fram);
 
             const gameUrl = sessionStorage.getItem("gameUrl");
-
             if (gameUrl) {
-                sessionStorage.removeItem("gameUrl");
-                sjFrame.go(gameUrl);
+            sessionStorage.removeItem("gameUrl");
+            sjFrame.go(gameUrl);
             }
         }
 

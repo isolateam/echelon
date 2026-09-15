@@ -152,38 +152,319 @@
         vertical-align: middle;
         margin-right: 5px;
       }
+
+      #captcha-gate {
+        position: fixed;
+        inset: 0;
+        z-index: 99999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+        font-family: system-ui, sans-serif;
+        color: #eee;
+        transition: opacity 0.7s ease;
+      }
+      #captcha-gate.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+      #captcha-bg-canvas {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        display: block;
+      }
+      .captcha-box {
+        background: #1a1d23;
+        padding: 2.5rem 3rem;
+        border-radius: 12px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      }
+      .captcha-box h1 {
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
+      }
+      .captcha-checkbox-row {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        background: #22262e;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        cursor: pointer;
+        user-select: none;
+      }
+      .captcha-checkbox-row input {
+        width: 22px;
+        height: 22px;
+        cursor: pointer;
+      }
+      #captcha-status {
+        margin-top: 1rem;
+        font-size: 0.9rem;
+        color: #8a8f98;
+        min-height: 1.2em;
+      }
+
+      #site-content {
+        opacity: 0;
+        transition: opacity 0.8s ease;
+      }
+      #site-content.visible {
+        opacity: 1;
+      }
     </style>
   </head>
   <body>
-    <div class="container">
-      <div id="tabcontainer">
-        <div id="tabs">
-          <button id="plus">+</button>
+    <div id="captcha-gate">
+      <canvas id="captcha-bg-canvas"></canvas>
+      <div class="captcha-box">
+        <h1>Making sure ur not a robot</h1>
+        <label class="captcha-checkbox-row">
+          <input type="checkbox" id="humanCheck" />
+          <span>i AM a real person :)</span>
+        </label>
+        <div id="captcha-status">just click it bra</div>
+      </div>
+    </div>
+    <div id="site-content">
+      <div class="container">
+        <div id="tabcontainer">
+          <div id="tabs">
+            <button id="plus">+</button>
+          </div>
         </div>
       </div>
     </div>
+
     <script>
-    const tc=document.getElementById("tabcontainer"),ts=document.getElementById("tabs"),p=document.getElementById("plus");let at=[],ai=[];
+      (function () {
+        var gate = document.getElementById("captcha-gate");
+        var siteContent = document.getElementById("site-content");
+        var checkbox = document.getElementById("humanCheck");
+        var status = document.getElementById("captcha-status");
+        var mouseMoved = false;
+        var alreadyVerified = sessionStorage.getItem("humanVerified") === "true";
 
-    function createTab(){
-      let t=document.createElement("button"),f=document.createElement("iframe"),c=document.createElement("button"),n=document.createElement("span");
-      t.id="tab";n.className="tab-title";n.textContent="Loading..";c.className="tab-close";c.textContent="×";t.append(n,c);f.src="/null";
-      setInterval(()=>{try{let x=f.contentWindow.document.getElementById("fram");if(!x)return;n.textContent=x.contentDocument.title||"New Tab";let i=x.contentDocument.querySelector('link[rel="icon"]');t.style.backgroundImage=`url(${i?i.href:"/data/images/tabs/icon.png"})`}catch{n.textContent="New Tab";t.style.backgroundImage="url(/data/images/tabs/icon.png)"}},1000);
-      tc.appendChild(f);ts.insertBefore(t,p);t.onclick=()=>a(t,f);c.onclick=e=>{e.stopPropagation();d(t,f)};a(t,f)
-    }
+        function revealSite() {
+          gate.classList.add("hidden");
+          siteContent.classList.add("visible");
+          setTimeout(function () {
+            gate.style.display = "none";
+          }, 700);
+        }
 
-    function a(t,f){
-      at.forEach(x=>x.classList.remove("active"));ai.forEach(x=>x.classList.remove("active-iframe"));
-      at=at.filter(x=>x!=t);ai=ai.filter(x=>x!=f);at.push(t);ai.push(f);t.classList.add("active");f.classList.add("active-iframe")
-    }
+        if (alreadyVerified) {
+          revealSite();
+          return;
+        }
 
-    function d(t,f){
-      let w=t.classList.contains("active"),i=at.indexOf(t);if(i>-1){at.splice(i,1);ai.splice(i,1)}t.remove();f.remove();
-      if(w&&at.length)a(at.at(-1),ai.at(-1))
-    }
-    p.onclick=createTab;window.onload=createTab;
+        document.addEventListener(
+          "mousemove",
+          function () {
+            mouseMoved = true;
+          },
+          { once: true }
+        );
+
+        checkbox.addEventListener("change", function () {
+          if (!checkbox.checked) return;
+
+          if (!mouseMoved) {
+            status.textContent = "Hmm, that didn't look human. Try again.";
+            checkbox.checked = false;
+            return;
+          }
+
+          status.textContent = "verifying..";
+          checkbox.disabled = true;
+
+          setTimeout(function () {
+            sessionStorage.setItem("humanVerified", "true");
+            sessionStorage.setItem("verifiedAt", Date.now().toString());
+            status.textContent = "verified!";
+            setTimeout(revealSite, 400);
+          }, 800);
+        });
+      })();
+
+      (function () {
+        var canvas = document.getElementById("captcha-bg-canvas");
+        if (!canvas) return;
+        var ctx = canvas.getContext("2d");
+        var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        var width, height, dpr;
+        var particles = [];
+        var mouse = { x: null, y: null };
+        var accentRgb = [232, 163, 61];
+
+        function resize() {
+          dpr = window.devicePixelRatio || 1;
+          width = window.innerWidth;
+          height = window.innerHeight;
+          canvas.width = width * dpr;
+          canvas.height = height * dpr;
+          canvas.style.width = width + "px";
+          canvas.style.height = height + "px";
+          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+          var count = Math.min(Math.round((width * height) / 16000), 90);
+          particles = Array.from({ length: count }, function () {
+            return {
+              x: Math.random() * width,
+              y: Math.random() * height,
+              vx: (Math.random() - 0.5) * 0.25,
+              vy: (Math.random() - 0.5) * 0.25,
+              r: Math.random() * 1.3 + 0.6
+            };
+          });
+        }
+
+        function frame() {
+          var gate = document.getElementById("captcha-gate");
+          if (!gate || gate.style.display === "none") return;
+
+          var r = accentRgb[0],
+            g = accentRgb[1],
+            b = accentRgb[2];
+          ctx.clearRect(0, 0, width, height);
+
+          for (var i = 0; i < particles.length; i++) {
+            var p = particles[i];
+            p.x += p.vx;
+            p.y += p.vy;
+
+            if (mouse.x !== null) {
+              var dx = p.x - mouse.x;
+              var dy = p.y - mouse.y;
+              var dist = Math.hypot(dx, dy);
+              if (dist < 120 && dist > 0.01) {
+                var force = (120 - dist) / 120;
+                p.x += (dx / dist) * force * 1.6;
+                p.y += (dy / dist) * force * 1.6;
+              }
+            }
+
+            if (p.x < -10) p.x = width + 10;
+            if (p.x > width + 10) p.x = -10;
+            if (p.y < -10) p.y = height + 10;
+            if (p.y > height + 10) p.y = -10;
+          }
+
+          for (var i2 = 0; i2 < particles.length; i2++) {
+            for (var j = i2 + 1; j < particles.length; j++) {
+              var a = particles[i2],
+                p2 = particles[j];
+              var dist2 = Math.hypot(a.x - p2.x, a.y - p2.y);
+              if (dist2 < 130) {
+                ctx.strokeStyle = "rgba(" + r + "," + g + "," + b + "," + (0.1 * (1 - dist2 / 130)) + ")";
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                ctx.moveTo(a.x, a.y);
+                ctx.lineTo(p2.x, p2.y);
+                ctx.stroke();
+              }
+            }
+          }
+
+          for (var i3 = 0; i3 < particles.length; i3++) {
+            var p3 = particles[i3];
+            ctx.fillStyle = "rgba(" + r + "," + g + "," + b + ",0.4)";
+            ctx.beginPath();
+            ctx.arc(p3.x, p3.y, p3.r, 0, Math.PI * 2);
+            ctx.fill();
+          }
+
+          if (!reduceMotion) requestAnimationFrame(frame);
+        }
+
+        function handlePointer(e) {
+          var point = e.touches ? e.touches[0] : e;
+          mouse.x = point.clientX;
+          mouse.y = point.clientY;
+        }
+
+        window.addEventListener("resize", resize);
+        window.addEventListener("mousemove", handlePointer);
+        window.addEventListener("touchmove", handlePointer, { passive: true });
+        window.addEventListener("mouseleave", function () {
+          mouse.x = null;
+          mouse.y = null;
+        });
+
+        resize();
+        frame();
+      })();
+
+      const tc = document.getElementById("tabcontainer"),
+        ts = document.getElementById("tabs"),
+        p = document.getElementById("plus");
+      let at = [],
+        ai = [];
+
+      function createTab() {
+        let t = document.createElement("button"),
+          f = document.createElement("iframe"),
+          c = document.createElement("button"),
+          n = document.createElement("span");
+        t.id = "tab";
+        n.className = "tab-title";
+        n.textContent = "Loading..";
+        c.className = "tab-close";
+        c.textContent = "×";
+        t.append(n, c);
+        f.src = "/null";
+        setInterval(() => {
+          try {
+            let x = f.contentWindow.document.getElementById("fram");
+            if (!x) return;
+            n.textContent = x.contentDocument.title || "New Tab";
+            let i = x.contentDocument.querySelector('link[rel="icon"]');
+            t.style.backgroundImage = `url(${i ? i.href : "/data/images/tabs/icon.png"})`;
+          } catch {
+            n.textContent = "New Tab";
+            t.style.backgroundImage = "url(/data/images/tabs/icon.png)";
+          }
+        }, 1000);
+        tc.appendChild(f);
+        ts.insertBefore(t, p);
+        t.onclick = () => a(t, f);
+        c.onclick = (e) => {
+          e.stopPropagation();
+          d(t, f);
+        };
+        a(t, f);
+      }
+
+      function a(t, f) {
+        at.forEach((x) => x.classList.remove("active"));
+        ai.forEach((x) => x.classList.remove("active-iframe"));
+        at = at.filter((x) => x != t);
+        ai = ai.filter((x) => x != f);
+        at.push(t);
+        ai.push(f);
+        t.classList.add("active");
+        f.classList.add("active-iframe");
+      }
+
+      function d(t, f) {
+        let w = t.classList.contains("active"),
+          i = at.indexOf(t);
+        if (i > -1) {
+          at.splice(i, 1);
+          ai.splice(i, 1);
+        }
+        t.remove();
+        f.remove();
+        if (w && at.length) a(at.at(-1), ai.at(-1));
+      }
+      p.onclick = createTab;
+      window.onload = createTab;
     </script>
-    
+
     <script src="./data/js/loading.js"></script>
     <script src="./data/js/theme.js"></script>
     <!--<script src="https://cdn.jsdelivr.net/gh/docklib/v2@0970bd57190df32d1ddd99492464d78e31877bd1/partner-a88074f2.js"

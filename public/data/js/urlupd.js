@@ -1,13 +1,16 @@
 function decode(url) {
-    const base = 'https://' + location.hostname;
-    if (url === base + '/' || url === base + '/index') {
+    const base = location.origin;
+    if (url === base + '/' || url === base + '/index')
         return 'breakium://home';
-    }
-    if (url === base + '/g') {
+    if (url === base + '/g')
         return 'breakium://games';
-    }
-    if (url === base + '/s') {
+    if (url === base + '/s')
         return 'breakium://settings';
+    const m = url.match(/\/~\/sj\/[^/]+\/[^/]+\/(https?%3A.*?)(?:\?|$)/);
+    if (m) {
+        try {
+            return decodeURIComponent(m[1]);
+        } catch {}
     }
     return url;
 }

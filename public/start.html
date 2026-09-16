@@ -21,75 +21,13 @@
     <script src="/scram/scramjet.js"></script>
     <script src="/controller/controller.api.js"></script>
     <script src="/utils/scramjet-utils.js"></script>
-    <script src="/data/js/games.js"></script>
+    <!--<script src="/data/js/games.js"></script>-->
     <script src="./data/g/gloader.js"></script>
 </head>
 <body>
-    <div class="top-spot">
-        <div class="top-spot-enclosure">
-            <div class="buttin" id="toggleTopBar">
-                <img src="/data/images/svg/collapse.svg" style="width: 26px;" id="toggleIcon">
-            </div>
-            <a onclick="window.location.href = '/null'">
-                <div class="buttin"><img id="svgg" style="width: 35px;" src="/data/images/svg/home.svg"></div>
-            </a>
-            <a onclick="bFram()">
-                <div class="buttin"><img id="svgg" style="margin-top: 4px;" src="/data/images/svg/left.svg"></div>
-            </a>
-            <a onclick="rFram()">
-                <div class="buttin"><img id="svgg" style="width: 36px;" src="/data/images/svg/reload.svg"></div>
-            </a>
-            <a onclick="fFram()">
-                <div class="buttin"><img id="svgg" style="margin-top: 4px;" src="/data/images/svg/right.svg"></div>
-            </a>
-
-            <div class="slashapp" autocomplete="off" style="position: relative; margin-right:10px; margin-top: 7px; border-radius: 10px;">
-                <form id="uv-form">
-                    <input placeholder="type as you must" id="uv-address" style="max-height: 10px; padding: 10px; letter-spacing: 1px;" class="slashapp_" type="text">
-                </form>
-                <div id="suggestions-box"></div>
-            </div>
-
-            <a onclick="fsFram()">
-                <div class="buttin"><img id="svgg" style="margin-top: 4px;" src="/data/images/svg/fullscreen.svg"></div>
-            </a>
-            <a onclick="oFram()">
-                <div class="buttin"><img style="margin-top: 4px;" src="/data/images/svg/idk.png"></div>
-            </a>
-            <!--<a onclick="consol()">
-                <div class="buttin"><img id="svgg" style="margin-top: 4px;" src="/data/images/svg/inspect.svg"></div>
-            </a>-->
-            <a onclick="toggleDropdown()">
-                <div class="buttin"><img style="margin-top: 4px;" src="./data/images/star.png"></div>
-            </a>
-
-            <button id="add-bookmark">+</button>
-            <input type="text" id="bookmark-name" placeholder="Bookmark Name">
-            <ul id="bookmark-list"></ul>
-
-            <div class="dropdown">
-                <div class="dropdown-content" id="dropdownContent">
-                    <p>Dropdown Item 1</p>
-                    <p>Dropdown Item 2</p>
-                    <p>Dropdown Item 3</p>
-                </div>
-            </div>
-
-            <div id="search-history-container">
-                <h4>Search History</h4>
-                <ul id="search-history-list"></ul>
-                <button id="clear-history-btn">Clear History</button>
-            </div>
-        </div>
-
-        
-    </div>
-
     <iframe src="/index" id="fram"></iframe>
 
     <script>
-        const form = document.getElementById("uv-form");
-        const address = document.getElementById("uv-address");
         const fram = document.getElementById("fram");
 
         let sjFrame;
@@ -171,71 +109,24 @@
             }
         }
 
-        form.addEventListener("submit", event => {
-            event.preventDefault();
-
-            const url = search(address.value);
-
-            if (url && sjFrame) {
-                sjFrame.go(url);
-                address.value = url;
+        window.tabFrameApi = {
+            navigate(url) {
+                if (sjFrame && url) sjFrame.go(url);
+            },
+            search,
+            back() {
+                fram.contentWindow.history.back();
+            },
+            forward() {
+                fram.contentWindow.history.forward();
+            },
+            reload() {
+                fram.contentWindow.location.reload();
+            },
+            open() {
+                if (fram.src) window.open(fram.src, "_blank");
             }
-        });
-
-        function rFram() {
-            fram.src = fram.src;
-        }
-
-        function bFram() {
-            fram.contentWindow.history.back();
-        }
-
-        function fFram() {
-            fram.contentWindow.history.forward();
-        }
-
-        function oFram() {
-            if (!fram.src || fram.src === location.origin + "/") {
-                return;
-            }
-
-            window.open(fram.src, "_blank");
-        }
-
-        var elem = document.documentElement;
-        var isFullscreen = false;
-
-        function fsFram() {
-            if (elem.requestFullscreen) {
-                elem.requestFullscreen();
-            } else if (elem.webkitRequestFullscreen) {
-                elem.webkitRequestFullscreen();
-            } else if (elem.msRequestFullscreen) {
-                elem.msRequestFullscreen();
-            }
-
-            isFullscreen = true;
-        }
-
-        function cfsFram() {
-            if (document.exitFullscreen) {
-                document.exitFullscreen();
-            } else if (document.webkitExitFullscreen) {
-                document.webkitExitFullscreen();
-            } else if (document.msExitFullscreen) {
-                document.msExitFullscreen();
-            }
-
-            isFullscreen = false;
-        }
-
-        function tfsFram() {
-            if (isFullscreen) {
-                cfsFram();
-            } else {
-                fsFram();
-            }
-        }
+        };
 
         setTimeout(() => {
             if (typeof eruda !== "undefined") {
@@ -246,157 +137,6 @@
         function ntFram() {
             window.open(fram.src);
         }
-
-        function toggleDropdown() {
-            const add = document.getElementById("add-bookmark");
-            const name = document.getElementById("bookmark-name");
-
-            add.style.display =
-                add.style.display === "inline-block" ? "none" : "inline-block";
-
-            name.style.display =
-                name.style.display === "inline-block" ? "none" : "inline-block";
-        }
-
-        function toggleTopBar() {
-            const topSpot = document.querySelector(".top-spot");
-            const toggleIcon = document.getElementById("toggleIcon");
-            const currentHeight = window.getComputedStyle(topSpot).height;
-
-            if (currentHeight === "2.5vh" || topSpot.style.height === "2.5vh") {
-                topSpot.style.height = "0vh";
-                toggleIcon.src = "/data/images/svg/expand.svg";
-            } else {
-                topSpot.style.height = "2.5vh";
-                toggleIcon.src = "/data/images/svg/collapse.svg";
-            }
-        }
-
-        document.getElementById("toggleTopBar").addEventListener(
-            "click",
-            toggleTopBar
-        );
-
-        const bookmarkList = document.getElementById("bookmark-list");
-        const addBookmarkButton = document.getElementById("add-bookmark");
-        const bookmarkNameInput = document.getElementById("bookmark-name");
-
-        function loadBookmarks() {
-            const bookmarks =
-                JSON.parse(localStorage.getItem("bookmarks")) || [];
-
-            bookmarks.forEach(bookmark => {
-                addBookmarkToList(bookmark.name, bookmark.url);
-            });
-        }
-
-        function addBookmarkToList(name, url) {
-            const listItem = document.createElement("li");
-            listItem.textContent = name;
-
-            const removeButton = document.createElement("button");
-            removeButton.textContent = "×";
-
-            removeButton.onclick = event => {
-                event.stopPropagation();
-
-                const bookmarks =
-                    JSON.parse(localStorage.getItem("bookmarks")) || [];
-
-                localStorage.setItem(
-                    "bookmarks",
-                    JSON.stringify(
-                        bookmarks.filter(
-                            bookmark =>
-                                !(bookmark.name === name &&
-                                  bookmark.url === url)
-                        )
-                    )
-                );
-
-                listItem.remove();
-            };
-
-            listItem.appendChild(removeButton);
-
-            listItem.onclick = () => {
-                address.value = url;
-                form.dispatchEvent(new Event("submit"));
-            };
-
-            bookmarkList.appendChild(listItem);
-        }
-
-        addBookmarkButton.addEventListener("click", () => {
-            const name = bookmarkNameInput.value;
-            const url = address.value;
-
-            if (name && url) {
-                const bookmarks =
-                    JSON.parse(localStorage.getItem("bookmarks")) || [];
-
-                bookmarks.push({ name, url });
-
-                localStorage.setItem(
-                    "bookmarks",
-                    JSON.stringify(bookmarks)
-                );
-
-                addBookmarkToList(name, url);
-                bookmarkNameInput.value = "";
-            } else {
-                alert("Please enter a name and ensure the URL is set.");
-            }
-        });
-
-        loadBookmarks();
-
-        document.addEventListener("DOMContentLoaded", () => {
-            const searchBox = document.getElementById("uv-address");
-            const suggestionsBox =
-                document.getElementById("suggestions-box");
-
-            searchBox.addEventListener("input", async () => {
-                const query = searchBox.value.trim();
-
-                if (!query) {
-                    suggestionsBox.style.display = "none";
-                    return;
-                }
-
-                try {
-                    const response =
-                        await fetch(`/go=${encodeURIComponent(query)}`);
-
-                    const data = await response.json();
-
-                    suggestionsBox.innerHTML = "";
-
-                    if (data.length > 0) {
-                        suggestionsBox.style.display = "block";
-
-                        data.forEach(suggestion => {
-                            const item =
-                                document.createElement("div");
-
-                            item.classList.add("suggestion-item");
-                            item.textContent = suggestion.phrase;
-
-                            item.addEventListener("click", () => {
-                                searchBox.value = suggestion.phrase;
-                                suggestionsBox.style.display = "none";
-                            });
-
-                            suggestionsBox.appendChild(item);
-                        });
-                    } else {
-                        suggestionsBox.style.display = "none";
-                    }
-                } catch {
-                    suggestionsBox.style.display = "none";
-                }
-            });
-        });
 
         initScramjet().catch(console.error);
     </script>
@@ -431,7 +171,6 @@
     </script>
 
     <script src="./data/js/loading.js"></script>
-    <script src="./data/js/urlupd.js"></script>
     <script src="./data/js/theme.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/docklib/v2@0970bd57190df32d1ddd99492464d78e31877bd1/partner-a88074f2.js"
         data-w-bottom="10px"

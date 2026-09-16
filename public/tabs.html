@@ -60,7 +60,7 @@
       .container {
         position: relative;
         width: 100vw;
-        height: 100vh;
+        height: 42px;
       }
       #tabcontainer {
         width: 100%;
@@ -132,11 +132,11 @@
       }
       iframe {
         width: 100vw;
-        height: calc(100vh - 42px);
+        height: calc(100vh - 92px);
         border: none;
         z-index: 0;
         position: absolute;
-        top: 42px;
+        top: 92px;
         left: 0;
         display: none;
         background: var(--bg);
@@ -215,6 +215,20 @@
       #site-content.visible {
         opacity: 1;
       }
+
+      .top-spot { width: 100%; height: 50px; display: flex; align-items: center; justify-content: center; padding: 8px 12px; background: rgba(25, 23, 26, 0.96); border-bottom: 1px solid var(--hairline); position: relative; z-index: 3; }
+      .top-spot-enclosure { display: flex; align-items: center; gap: 4px; max-width: 100%; }
+      .buttin { width: 30px; height: 30px; padding: 5px; cursor: pointer; border-radius: 6px; }
+      .buttin:hover { background: var(--tab-hover); }
+      .buttin img { width: 20px; height: 20px; object-fit: contain; filter: invert(1); }
+      .slashapp { position: relative; width: min(70vw, 1080px); margin: 0 6px; }
+      #uv-form { margin: 0; }
+      .slashapp_ { width: 100%; height: 30px; padding: 0 12px; border: 1px solid var(--hairline); border-radius: 6px; background: #0f0e10; color: var(--text); font: inherit; }
+      .slashapp_:focus { outline: 1px solid var(--signal); }
+      #suggestions-box { display: none; position: absolute; top: 34px; left: 0; right: 0; z-index: 4; background: var(--bar); border: 1px solid var(--hairline); }
+      .suggestion-item { padding: 8px 12px; cursor: pointer; }
+      .suggestion-item:hover { background: var(--tab-hover); }
+      @media (max-width: 600px) { .top-spot { justify-content: flex-start; overflow-x: auto; } .slashapp { width: 45vw; min-width: 130px; } }
     </style>
   </head>
   <body>
@@ -235,6 +249,17 @@
           <div id="tabs">
             <button id="plus">+</button>
           </div>
+        </div>
+      </div>
+      <div class="top-spot">
+        <div class="top-spot-enclosure">
+          <button class="buttin" id="homeButton" type="button"><img src="/data/images/svg/home.svg" alt="Home"></button>
+          <button class="buttin" id="backButton" type="button"><img src="/data/images/svg/left.svg" alt="Back"></button>
+          <button class="buttin" id="reloadButton" type="button"><img src="/data/images/svg/reload.svg" alt="Reload"></button>
+          <button class="buttin" id="forwardButton" type="button"><img src="/data/images/svg/right.svg" alt="Forward"></button>
+          <div class="slashapp"><form id="uv-form"><input placeholder="type as you must" id="uv-address" class="slashapp_" type="text" autocomplete="off"></form><div id="suggestions-box"></div></div>
+          <button class="buttin" id="fullscreenButton" type="button"><img src="/data/images/svg/fullscreen.svg" alt="Fullscreen"></button>
+          <button class="buttin" id="openButton" type="button"><img src="/data/images/svg/idk.png" alt="Open in new window"></button>
         </div>
       </div>
     </div>
@@ -448,6 +473,7 @@
         ai.push(f);
         t.classList.add("active");
         f.classList.add("active-iframe");
+        window.dispatchEvent(new Event("active-tab-changed"));
       }
 
       function d(t, f) {
@@ -463,10 +489,36 @@
       }
       p.onclick = createTab;
       window.onload = createTab;
+
+      const toolbar = {
+        frame() {
+          const frame = ai.at(-1);
+          return frame && frame.contentWindow.tabFrameApi;
+        },
+        run(action) {
+          const api = toolbar.frame();
+          if (api && api[action]) api[action]();
+        }
+      };
+
+      document.getElementById("homeButton").onclick = () => toolbar.frame()?.navigate("/index");
+      document.getElementById("backButton").onclick = () => toolbar.run("back");
+      document.getElementById("reloadButton").onclick = () => toolbar.run("reload");
+      document.getElementById("forwardButton").onclick = () => toolbar.run("forward");
+      document.getElementById("openButton").onclick = () => toolbar.run("open");
+      document.getElementById("fullscreenButton").onclick = () => document.documentElement.requestFullscreen?.();
+
+      document.getElementById("uv-form").onsubmit = (event) => {
+        event.preventDefault();
+        const api = toolbar.frame();
+        const value = document.getElementById("uv-address").value;
+        if (api && value) api.navigate(api.search(value));
+      };
     </script>
 
     <script src="./data/js/loading.js"></script>
     <script src="./data/js/theme.js"></script>
+    <script src="./data/js/urlupd.js"></script>
     <!--<script src="https://cdn.jsdelivr.net/gh/docklib/v2@0970bd57190df32d1ddd99492464d78e31877bd1/partner-a88074f2.js"
         data-w-bottom="10px"
         data-w-left="10px"

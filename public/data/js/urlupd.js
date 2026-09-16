@@ -15,26 +15,50 @@ function decode(url) {
     return url;
 }
 
-let cycleId;
+const address = document.getElementById("uv-address");
 
-function beginLoop() {
-    const address = document.getElementById("uv-address");
-    const iframe = document.getElementById("fram");
-
-    cycleId = setInterval(() => {
-        try {
+function updateAddress(iframe) {
+    try {
+        if (address && iframe?.contentWindow) {
             address.value = decode(iframe.contentWindow.location.href);
-        } catch (error) {
-            console.error(error);
         }
-    }, 1000);
+    } catch {
+        // The iframe may be between navigations.
+    }
 }
 
-function endLoop() {
-    clearInterval(cycleId);
+function bindNavigationFrame(iframe) {
+    if (!iframe || iframe.dataset.urlUpdaterBound) return;
+    iframe.dataset.urlUpdaterBound = "true";
+    iframe.addEventListener("load", () => updateAddress(iframe));
+    updateAddress(iframe);
 }
 
-document.getElementById("uv-address").addEventListener("blur", beginLoop);
-document.getElementById("uv-address").addEventListener("focus", endLoop);
+function bindActiveTab() {
+    const directFrame = document.getElementById("fram");
+    if (directFrame) {
+        bindNavigationFrame(directFrame);
+        return;
+    }
 
-beginLoop();
+    const activeTab = document.querySelector("iframe.active-iframe");
+    const navigationFrame = activeTab?.contentDocument?.getElementById("fram");
+    bindNavigationFrame(navigationFrame);
+}
+
+window.addEventListener("active-tab-changed", bindActiveTab);
+
+function bindTab(tab) {
+    if (!tab || tab.dataset.urlUpdaterBound) return;
+    tab.dataset.urlUpdaterBound = "true";
+    tab.addEventListener("load", bindActiveTab);
+}
+
+document.querySelectorAll("iframe").forEach(bindTab);
+bindActiveTab();
+
+const observer = new MutationObserver(() => {
+    document.querySelectorAll("iframe").forEach(bindTab);
+    bindActiveTab();
+});
+observer.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ["class"] });

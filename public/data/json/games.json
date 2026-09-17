@@ -10,12 +10,12 @@
   "games": [
     {
       "name": "R.E.P.O.",
-    "directory": "/data/g/repo/",
+    "directory": "./data/g/repo/",
       "image": "./data/images/games/repo.png"
     },
     {
       "name": "People Playground",
-    "directory": "/data/g/people-playground/",
+    "directory": "./data/g/people-playground/",
       "image": "./data/images/games/people-playground.png"
     },
     {
@@ -425,184 +425,184 @@
     },
     {
       "name": "Thorn Balloons",
-      "directory": "/data/g/thorn-balloons/",
+      "directory": "./data/g/thorn-balloons/",
       "image": "./data/images/games/thorn-balloons.png"
     },
     {
       "name": "Toss the Turtle",
-      "directory": "/data/g/tosstheturtle/",
+      "directory": "./data/g/tosstheturtle/",
       "image": "./data/images/games/tosstheturtle.png"
     },
     {
       "name": "Tube Jumpers",
-      "directory": "/data/g/tube-jumpers/",
+      "directory": "./data/g/tube-jumpers/",
       "image": "./data/images/games/tube-jumpers.png"
     },
     {
       "name": "TV Static",
-      "directory": "/data/g/tv-static/",
+      "directory": "./data/g/tv-static/",
       "image": "./data/images/games/tv-static.png"
     },
     {
       "name": "Twitch Tetris",
-      "directory": "/data/g/twitch-tetris/",
+      "directory": "./data/g/twitch-tetris/",
       "image": "./data/images/games/twitch-tetris.png"
     },
     {
       "name": "Veloce",
-      "directory": "/data/g/veloce/",
+      "directory": "./data/g/veloce/",
       "image": "./data/images/games/veloce.png"
     },
     {
       "name": "Vex3",
-      "directory": "/data/g/vex3/",
+      "directory": "./data/g/vex3/",
       "image": "./data/images/games/vex3.png"
     },
     {
       "name": "Vex4",
-      "directory": "/data/g/vex4/",
+      "directory": "./data/g/vex4/",
       "image": "./data/images/games/vex4.png"
     },
     {
       "name": "Vex5",
-      "directory": "/data/g/vex5/",
+      "directory": "./data/g/vex5/",
       "image": "./data/images/games/vex5.png"
     },
     {
       "name": "Vex6",
-      "directory": "/data/g/vex6/",
+      "directory": "./data/g/vex6/",
       "image": "./data/images/games/vex6.png"
     },
     {
       "name": "Synesthesia",
-      "directory": "/data/g/synesthesia/",
+      "directory": "./data/g/synesthesia/",
       "image": "./data/images/games/synesthesia.png"
     },
     {
       "name": "Double Wires",
-      "directory": "/data/g/doublewires/",
+      "directory": "./data/g/doublewires/",
       "image": "./data/images/games/doublewires.png"
     },
     {
       "name": "Dragon VS Bricks",
-      "directory": "/data/g/dragonvsbricks/",
+      "directory": "./data/g/dragonvsbricks/",
       "image": "./data/images/games/dragon-vs-bricks.png"
     },
     {
       "name": "Draw the Hill",
-      "directory": "/data/g/drawthehill/",
+      "directory": "./data/g/drawthehill/",
       "image": "./data/images/games/draw-the-hill.png"
     },
     {
       "name": "Duck Life 1",
-      "directory": "/data/g/ducklife1/",
+      "directory": "./data/g/ducklife1/",
       "image": "./data/images/games/duck-life.png"
     },
     {
       "name": "Duck Life 2",
-      "directory": "/data/g/ducklife2/",
+      "directory": "./data/g/ducklife2/",
       "image": "./data/images/games/duck-life-2.png"
     },
     {
       "name": "Duck Life 3",
-      "directory": "/data/g/ducklife3/",
+      "directory": "./data/g/ducklife3/",
       "image": "./data/images/games/duck-life-3.png"
     },
     {
       "name": "Duck Life 4",
-      "directory": "/data/g/ducklife4/",
+      "directory": "./data/g/ducklife4/",
       "image": "./data/images/games/duck-life-4.png"
     },
     {
       "name": "Edge Surf",
-      "directory": "/data/g/edgesurf/",
+      "directory": "./data/g/edgesurf/",
       "image": "./data/images/games/edge-surf.png"
     },
     {
       "name": "Elastic Man",
-      "directory": "/data/g/elasticman/",
+      "directory": "./data/g/elasticman/",
       "image": "./data/images/games/elastic-man.png"
     },
     {
       "name": "Endless War 3",
-      "directory": "/data/g/endlesswar3/",
+      "directory": "./data/g/endlesswar3/",
       "image": "./data/images/games/endless-war-3.png"
     },
     {
       "name": "Evil Glitch",
-      "directory": "/data/g/evilglitch/",
+      "directory": "./data/g/evilglitch/",
       "image": "./data/images/games/evil-glitch.png"
     },
     {
       "name": "Evolution",
-      "directory": "/data/g/evolution/",
+      "directory": "./data/g/evolution/",
       "image": "./data/images/games/evolution.png"
     },
     {
       "name": "Exo",
-      "directory": "/data/g/exo/",
+      "directory": "./data/g/exo/",
       "image": "./data/images/games/exo.png"
     },
     {
       "name": "Factory Balls",
-      "directory": "/data/g/factoryballs/",
+      "directory": "./data/g/factoryballs/",
       "image": "./data/images/games/factory-balls.png"
     },
     {
       "name": "Fair Squares",
-      "directory": "/data/g/fairsquares/",
+      "directory": "./data/g/fairsquares/",
       "image": "./data/images/games/fair-squares.png"
     },
     {
       "name": "Fancy Pants Adventures",
-      "directory": "/data/g/fancypantsadventure/",
+      "directory": "./data/g/fancypantsadventure/",
       "image": "./data/images/games/fancy-pants-adventure.png"
     },
     {
       "name": "Fake Virus",
-      "directory": "/data/g/fakevirus/",
+      "directory": "./data/g/fakevirus/",
       "image": "./data/images/games/fake-virus.png"
     },
     {
       "name": "FireBoy and WaterGirl",
-      "directory": "/data/g/fireboywatergirl/",
+      "directory": "./data/g/fireboywatergirl/",
       "image": "./data/images/games/fireboy-and-watergirl.png"
     },
     {
       "name": "Flappy 2048",
-      "directory": "/data/g/flappy2048/",
+      "directory": "./data/g/flappy2048/",
       "image": "./data/images/games/flappy-2048.png"
     },
     {
       "name": "Flash Tetris",
-      "directory": "/data/g/flashtetris/",
+      "directory": "./data/g/flashtetris/",
       "image": "./data/images/games/flash-tetris.png"
     },
     {
       "name": "Five Nights at Winstons",
-      "directory": "/data/g/fnaw/",
+      "directory": "./data/g/fnaw/",
       "image": "./data/images/games/fnaw.png"
     },
     {
       "name": "Froggy's Battle",
-      "directory": "/data/g/froggysbattle/",
+      "directory": "./data/g/froggysbattle/",
       "image": "./data/images/games/froggys-battle.png"
     },
     {
       "name": "Fruit Ninja",
-      "directory": "/data/g/fruitninja/",
+      "directory": "./data/g/fruitninja/",
       "image": "./data/images/games/fruit-ninja.png"
     },
     {
       "name": "Frying Nemo",
-      "directory": "/data/g/fryingnemo/",
+      "directory": "./data/g/fryingnemo/",
       "image": "./data/images/games/frying-nemo.png"
     },
     {
 
       "name": "Game Inside a Game",
 
-      "directory": "/data/g/gameinside/",
+      "directory": "./data/g/gameinside/",
 
       "image": "./data/images/games/giag.png"
 
@@ -612,7 +612,7 @@
 
       "name": "Generic Fishing Game",
 
-      "directory": "/data/g/genericfishinggame/",
+      "directory": "./data/g/genericfishinggame/",
 
       "image": "./data/images/games/gfg.png"
 
@@ -622,7 +622,7 @@
 
       "name": "George and the Printer",
 
-      "directory": "/data/g/georgeandtheprinter/",
+      "directory": "./data/g/georgeandtheprinter/",
 
       "image": "./data/images/games/gatp.png"
 
@@ -632,7 +632,7 @@
 
       "name": "Gimme the Airpod",
 
-      "directory": "/data/g/gimmetheairpod/",
+      "directory": "./data/g/gimmetheairpod/",
 
       "image": "./data/images/games/gimme-the-airpod.png"
 
@@ -642,7 +642,7 @@
 
       "name": "Glass City",
 
-      "directory": "/data/g/glasscity/",
+      "directory": "./data/g/glasscity/",
 
       "image": "./data/images/games/glass-city.png"
 
@@ -652,7 +652,7 @@
 
       "name": "Go Ball",
 
-      "directory": "/data/g/goball/",
+      "directory": "./data/g/goball/",
 
       "image": "./data/images/games/go-ball.png"
 
@@ -662,7 +662,7 @@
 
       "name": "Goodnight",
 
-      "directory": "/data/g/goodnight/",
+      "directory": "./data/g/goodnight/",
 
       "image": "./data/images/games/goodnight.png"
 
@@ -672,7 +672,7 @@
 
       "name": "Google Feud",
 
-      "directory": "/data/g/googlefeud/",
+      "directory": "./data/g/googlefeud/",
 
       "image": "./data/images/games/google-feud.png"
 
@@ -682,7 +682,7 @@
 
       "name": "Gravity Soccer",
 
-      "directory": "/data/g/gravitysoccer/",
+      "directory": "./data/g/gravitysoccer/",
 
       "image": "./data/images/games/gravity-soccer.png"
 
@@ -692,7 +692,7 @@
 
       "name": "Greybox",
 
-      "directory": "/data/g/greybox/",
+      "directory": "./data/g/greybox/",
 
       "image": "./data/images/games/greybox.png"
 
@@ -702,7 +702,7 @@
 
       "name": "GrindCraft",
 
-      "directory": "/data/g/grindcraft/",
+      "directory": "./data/g/grindcraft/",
 
       "image": "./data/images/games/grindcraft.png"
 
@@ -712,7 +712,7 @@
 
       "name": "Hacker Type",
 
-      "directory": "/data/g/hackertype/",
+      "directory": "./data/g/hackertype/",
 
       "image": "./data/images/games/hacker-type.png"
 
@@ -722,7 +722,7 @@
 
       "name": "Handshakes",
 
-      "directory": "/data/g/handshakes/",
+      "directory": "./data/g/handshakes/",
 
       "image": "./data/images/games/handshakes.png"
 
@@ -732,7 +732,7 @@
 
       "name": "Happy Hop",
 
-      "directory": "/data/g/happyhop/",
+      "directory": "./data/g/happyhop/",
 
       "image": "./data/images/games/happy-hop.png"
 
@@ -742,7 +742,7 @@
 
       "name": "Hover Bots Arena",
 
-      "directory": "/data/g/hba/",
+      "directory": "./data/g/hba/",
 
       "image": "./data/images/games/hover-bots-arena.png"
 
@@ -752,7 +752,7 @@
 
       "name": "Helicopter",
 
-      "directory": "/data/g/helicopter/",
+      "directory": "./data/g/helicopter/",
 
       "image": "./data/images/games/helicopter.png"
 
@@ -762,7 +762,7 @@
 
       "name": "Hex Empire",
 
-      "directory": "/data/g/hexempire/",
+      "directory": "./data/g/hexempire/",
 
       "image": "./data/images/games/hex-empire.png"
 
@@ -772,7 +772,7 @@
 
       "name": "Hextris",
 
-      "directory": "/data/g/hextris/",
+      "directory": "./data/g/hextris/",
 
       "image": "./data/images/games/hextris.png"
 
@@ -782,7 +782,7 @@
 
       "name": "Suika Game",
 
-      "directory": "/data/g/suika/",
+      "directory": "./data/g/suika/",
 
       "image": "./data/images/games/suika-game.png"
 
@@ -792,7 +792,7 @@
 
       "name": "Creative Kill Chamber",
 
-      "directory": "/data/g/creativekillchamber/",
+      "directory": "./data/g/creativekillchamber/",
 
       "image": "./data/images/games/creative-kill-chamber.png"
 
@@ -802,7 +802,7 @@
 
       "name": "Cubefield",
 
-      "directory": "/data/g/cubefield/",
+      "directory": "./data/g/cubefield/",
 
       "image": "./data/images/games/cubefield.png"
 
@@ -812,7 +812,7 @@
 
       "name": "Big Tower Tiny Square",
 
-      "directory": "/data/g/btts/",
+      "directory": "./data/g/btts/",
 
       "image": "./data/images/games/btts.png"
 
@@ -822,7 +822,7 @@
 
       "name": "Cannon Basketball 4",
 
-      "directory": "/data/g/cannon-basketball-4/",
+      "directory": "./data/g/cannon-basketball-4/",
 
       "image": "./data/images/games/cannon-basketball-4.png"
 
@@ -832,7 +832,7 @@
 
       "name": "Canyon Defense",
 
-      "directory": "/data/g/canyondefense/",
+      "directory": "./data/g/canyondefense/",
 
       "image": "./data/images/games/canyon-defense.png"
 
@@ -842,7 +842,7 @@
 
       "name": "Cars Simulator",
 
-      "directory": "/data/g/cars-simulator/",
+      "directory": "./data/g/cars-simulator/",
 
       "image": "./data/images/games/cars-simulator.png"
 
@@ -852,7 +852,7 @@
 
       "name": "Champion Island",
 
-      "directory": "/data/g/champion-island/",
+      "directory": "./data/g/champion-island/",
 
       "image": "./data/images/games/champion-island.png"
 
@@ -862,7 +862,7 @@
 
       "name": "Chill Radio",
 
-      "directory": "/data/g/chill-radio/",
+      "directory": "./data/g/chill-radio/",
 
       "image": "./data/images/games/chill-radio.png"
 
@@ -872,7 +872,7 @@
 
       "name": "Chrome Dino",
 
-      "directory": "/data/g/chrome-dino/",
+      "directory": "./data/g/chrome-dino/",
 
       "image": "./data/images/games/chrome-dino.png"
 
@@ -882,7 +882,7 @@
 
       "name": "Connect 3",
 
-      "directory": "/data/g/connect3/",
+      "directory": "./data/g/connect3/",
 
       "image": "./data/images/games/connect-3.png"
 
@@ -892,7 +892,7 @@
 
       "name": "Core Ball",
 
-      "directory": "/data/g/core-ball/",
+      "directory": "./data/g/core-ball/",
 
       "image": "./data/images/games/core-ball.png"
 
@@ -902,7 +902,7 @@
 
       "name": "Table Tennis Ultimate Tournament",
 
-      "directory": "/data/g/cnpingpong/",
+      "directory": "./data/g/cnpingpong/",
 
       "image": "./data/images/games/ttut.png"
 
@@ -912,7 +912,7 @@
 
       "name": "CraftMine",
 
-      "directory": "/data/g/craftmine/",
+      "directory": "./data/g/craftmine/",
 
       "image": "./data/images/games/craftmine.png"
 
@@ -922,7 +922,7 @@
 
       "name": "Big NEON Tower Tiny Square",
 
-      "directory": "/data/g/bntts/",
+      "directory": "./data/g/bntts/",
 
       "image": "./data/images/games/bntts.png"
 
@@ -932,7 +932,7 @@
 
       "name": "Bob the Robber 2",
 
-      "directory": "/data/g/bobtherobber2/",
+      "directory": "./data/g/bobtherobber2/",
 
       "image": "./data/images/games/bob-the-robber-2.png"
 
@@ -942,7 +942,7 @@
 
       "name": "Box Head",
 
-      "directory": "/data/g/boxhead2play/",
+      "directory": "./data/g/boxhead2play/",
 
       "image": "./data/images/games/box-head.png"
 
@@ -952,7 +952,7 @@
 
       "name": "Big Red Button",
 
-      "directory": "/data/g/bigreddiv/",
+      "directory": "./data/g/bigreddiv/",
 
       "image": "./data/images/games/big-red-button.png"
 
@@ -962,7 +962,7 @@
 
       "name": "Black Hole Square",
 
-      "directory": "/data/g/blackholesquare/",
+      "directory": "./data/g/blackholesquare/",
 
       "image": "./data/images/games/black-hole-square.png"
 
@@ -972,7 +972,7 @@
 
       "name": "Black Knight",
 
-      "directory": "/data/g/blackknight/",
+      "directory": "./data/g/blackknight/",
 
       "image": "./data/images/games/black-knight.png"
 
@@ -982,7 +982,7 @@
 
       "name": "1",
 
-      "directory": "/data/g/1/",
+      "directory": "./data/g/1/",
 
       "image": "./data/images/games/1.png"
 
@@ -992,7 +992,7 @@
 
       "name": "100ng",
 
-      "directory": "/data/g/100ng/",
+      "directory": "./data/g/100ng/",
 
       "image": "./data/images/games/100ng.png"
 
@@ -1002,7 +1002,7 @@
 
       "name": "1v1space",
 
-      "directory": "/data/g/1v1space/",
+      "directory": "./data/g/1v1space/",
 
       "image": "./data/images/games/1v1space.png"
 
@@ -1012,7 +1012,7 @@
 
       "name": "2048-multitask",
 
-      "directory": "/data/g/2048-multitask/",
+      "directory": "./data/g/2048-multitask/",
 
       "image": "./data/images/games/2048-multitask.png"
 
@@ -1022,7 +1022,7 @@
 
       "name": "Offline Paradise",
 
-      "directory": "/data/g/OfflineParadise/",
+      "directory": "./data/g/OfflineParadise/",
 
       "image": "./data/images/games/offline-paradise.png"
 
@@ -1032,7 +1032,7 @@
 
       "name": "Stickman Survival",
 
-      "directory": "/data/g/Stickman-Survival/",
+      "directory": "./data/g/Stickman-Survival/",
 
       "image": "./data/images/games/stickman-survival.png"
 
@@ -1042,7 +1042,7 @@
 
       "name": "Adrenaline Challenge",
 
-      "directory": "/data/g/adrenalinechallenge/",
+      "directory": "./data/g/adrenalinechallenge/",
 
       "image": "./data/images/games/adrenaline-challenge.png"
 
@@ -1052,7 +1052,7 @@
 
       "name": "Ages of Conflict",
 
-      "directory": "/data/g/ages-of-conflict/",
+      "directory": "./data/g/ages-of-conflict/",
 
       "image": "./data/images/games/ages-of-conflict.png"
 
@@ -1062,7 +1062,7 @@
 
       "name": "Alien Hominid",
 
-      "directory": "/data/g/alienhominid/",
+      "directory": "./data/g/alienhominid/",
 
       "image": "./data/images/games/alien-hominid.png"
 
@@ -1072,7 +1072,7 @@
 
       "name": "Amidst the Clouds",
 
-      "directory": "/data/g/amidst-the-clouds/",
+      "directory": "./data/g/amidst-the-clouds/",
 
       "image": "./data/images/games/amidst-the-clouds.png"
 
@@ -1082,7 +1082,7 @@
 
       "name": "Angry Sharks",
 
-      "directory": "/data/g/angry-sharks/",
+      "directory": "./data/g/angry-sharks/",
 
       "image": "./data/images/games/angry-sharks.png"
 
@@ -1092,7 +1092,7 @@
 
       "name": "Aquapark Slides",
 
-      "directory": "/data/g/aquapark-slides/",
+      "directory": "./data/g/aquapark-slides/",
 
       "image": "./data/images/games/aquapark-slides.png"
 
@@ -1102,7 +1102,7 @@
 
       "name": "Astray",
 
-      "directory": "/data/g/astray/",
+      "directory": "./data/g/astray/",
 
       "image": "./data/images/games/astray.png"
 
@@ -1112,7 +1112,7 @@
 
       "name": "Awesome Tanks 2",
 
-      "directory": "/data/g/awesometanks2/",
+      "directory": "./data/g/awesometanks2/",
 
       "image": "./data/images/games/awesome-tanks-2.png"
 
@@ -1122,7 +1122,7 @@
 
       "name": "Basketball Stars",
 
-      "directory": "/data/g/basketball-stars/",
+      "directory": "./data/g/basketball-stars/",
 
       "image": "./data/images/games/basketball-stars.png"
 
@@ -1132,7 +1132,7 @@
 
       "name": "Basket Bros . io",
 
-      "directory": "/data/g/basketbros-io/",
+      "directory": "./data/g/basketbros-io/",
 
       "image": "./data/images/games/basketbros-io.png"
 
@@ -1142,7 +1142,7 @@
 
       "name": "Battle for Gondor",
 
-      "directory": "/data/g/battleforgondor/",
+      "directory": "./data/g/battleforgondor/",
 
       "image": "./data/images/games/battle-for-gondor.png"
 
@@ -1152,7 +1152,7 @@
 
       "name": "Case Clicker",
 
-      "directory": "/data/g/case-clicker/",
+      "directory": "./data/g/case-clicker/",
 
       "image": "./data/images/games/case-clicker.png"
 
@@ -1162,7 +1162,7 @@
 
       "name": "Tag",
 
-      "directory": "/data/g/tag/",
+      "directory": "./data/g/tag/",
 
       "image": "./data/images/games/tag.png"
 
@@ -1172,7 +1172,7 @@
 
       "name": "Funny Shooter 1",
 
-      "directory": "/data/g/funny-shooter/",
+      "directory": "./data/g/funny-shooter/",
 
       "image": "./data/images/games/funny-shooter-1.png"
 
@@ -1182,7 +1182,7 @@
 
       "name": "Getaway Shootout",
 
-      "directory": "/data/g/getaway-shootout/",
+      "directory": "./data/g/getaway-shootout/",
 
       "image": "./data/images/games/getaway-shootout.png"
 
@@ -1192,7 +1192,7 @@
 
       "name": "Funny Shooter 2",
 
-      "directory": "/data/g/funny-shooter-2/",
+      "directory": "./data/g/funny-shooter-2/",
 
       "image": "./data/images/games/funny-shooter-2.png"
 
@@ -1202,7 +1202,7 @@
 
       "name": "OvO 1",
 
-      "directory": "/data/g/ovo/",
+      "directory": "./data/g/ovo/",
 
       "image": "./data/images/games/ovo.png"
 
@@ -1212,7 +1212,7 @@
 
       "name": "Drift Hunters",
 
-      "directory": "/data/g/drift-hunters/",
+      "directory": "./data/g/drift-hunters/",
 
       "image": "./data/images/games/drift-hunters.png"
 
@@ -1222,7 +1222,7 @@
 
       "name": "Flappy Bird",
 
-      "directory": "/data/g/flappy-bird/",
+      "directory": "./data/g/flappy-bird/",
 
       "image": "./data/images/games/flappy-bird.png"
 
@@ -1232,7 +1232,7 @@
 
       "name": "Line Rider",
 
-      "directory": "/data/g/line-rider/",
+      "directory": "./data/g/line-rider/",
 
       "image": "./data/images/games/line-rider.png"
 
@@ -1242,7 +1242,7 @@
 
       "name": "Rooftop Snipers",
 
-      "directory": "/data/g/rooftop-snipers/",
+      "directory": "./data/g/rooftop-snipers/",
 
       "image": "./data/images/games/rooftop-snipers.png"
 
@@ -1252,7 +1252,7 @@
 
       "name": "Retro Bowl College",
 
-      "directory": "/data/g/retro-bowl-college/",
+      "directory": "./data/g/retro-bowl-college/",
 
       "image": "./data/images/games/retro-bowl-college.png"
 
@@ -1262,7 +1262,7 @@
 
       "name": "Rocket League",
 
-      "directory": "/data/g/rocket-league/",
+      "directory": "./data/g/rocket-league/",
 
       "image": "./data/images/games/rocket-league.png"
 
@@ -1272,7 +1272,7 @@
 
       "name": "We Become What We Behold",
 
-      "directory": "/data/g/we-become-what-we-behold/",
+      "directory": "./data/g/we-become-what-we-behold/",
 
       "image": "./data/images/games/we-become-what-we-behold.png"
 
@@ -1282,7 +1282,7 @@
 
       "name": "Weave Silk",
 
-      "directory": "/data/g/weave-silk/",
+      "directory": "./data/g/weave-silk/",
 
       "image": "./data/images/games/weave-silk.png"
 
@@ -1292,7 +1292,7 @@
 
       "name": "Run 3",
 
-      "directory": "/data/g/run-3/",
+      "directory": "./data/g/run-3/",
 
       "image": "./data/images/games/run-3.png"
 
@@ -1302,7 +1302,7 @@
 
       "name": "Russian Car Driver",
 
-      "directory": "/data/g/russian-car-driver/",
+      "directory": "./data/g/russian-car-driver/",
 
       "image": "./data/images/games/russian-car-driver.png"
 
@@ -1312,7 +1312,7 @@
 
       "name": "Windows 11 Simulator",
 
-      "directory": "/data/g/windows-11/",
+      "directory": "./data/g/windows-11/",
 
       "image": "./data/images/games/windows-11-simulator.png"
 
@@ -1322,7 +1322,7 @@
 
       "name": "Wordle",
 
-      "directory": "/data/g/wordle/",
+      "directory": "./data/g/wordle/",
 
       "image": "./data/images/games/wordle.png"
 
@@ -1332,7 +1332,7 @@
 
       "name": "Zombopocalypse",
 
-      "directory": "/data/g/zombopocalypse/",
+      "directory": "./data/g/zombopocalypse/",
 
       "image": "./data/images/games/zombopocalypse.png"
 
@@ -1342,7 +1342,7 @@
 
       "name": "I Wanna Be The Guy",
 
-      "directory": "/data/g/i-wanna-be-the-guy/",
+      "directory": "./data/g/i-wanna-be-the-guy/",
 
       "image": "./data/images/games/i-wanna-be-the-guy.png"
 
@@ -1352,7 +1352,7 @@
 
       "name": "Knife Hit",
 
-      "directory": "/data/g/knife-hit/",
+      "directory": "./data/g/knife-hit/",
 
       "image": "./data/images/games/knife-hit.png"
 
@@ -1362,7 +1362,7 @@
 
       "name": "Skibidi Toilet Attack",
 
-      "directory": "/data/g/skibiti-toilet-attack/",
+      "directory": "./data/g/skibiti-toilet-attack/",
 
       "image": "./data/images/games/skibidi-toilet-attack.png"
 
@@ -1372,7 +1372,7 @@
 
         "name": "Stickman Boost",
 
-        "directory": "/data/g/stickman-boost/",
+        "directory": "./data/g/stickman-boost/",
 
         "image": "./data/images/games/stickman-boost.png"
 
@@ -1382,7 +1382,7 @@
 
         "name": "Stickman Climb",
 
-        "directory": "/data/g/stickman-climb/",
+        "directory": "./data/g/stickman-climb/",
 
         "image": "./data/images/games/stickman-climb.png"
 
@@ -1392,7 +1392,7 @@
 
         "name": "Stickman Golf",
 
-        "directory": "/data/g/stickman-golf/",
+        "directory": "./data/g/stickman-golf/",
 
         "image": "./data/images/games/stickman-golf.png"
 
@@ -1402,7 +1402,7 @@
 
         "name": "Death Run 3D",
 
-        "directory": "/data/g/death-run-3d/",
+        "directory": "./data/g/death-run-3d/",
 
         "image": "./data/images/games/death-run-3d.png"
 
@@ -1412,7 +1412,7 @@
 
         "name": "Thirty Dollar Website",
 
-        "directory": "/data/g/thirty-dollar-website/",
+        "directory": "./data/g/thirty-dollar-website/",
 
         "image": "./data/images/games/thirty-dollar-website.png"
 
@@ -1422,7 +1422,7 @@
 
         "name": "Super Meat Boy",
 
-        "directory": "/data/g/super-meat-boy/",
+        "directory": "./data/g/super-meat-boy/",
 
         "image": "./data/images/games/super-meat-boy.png"
 
@@ -1432,7 +1432,7 @@
 
         "name": "Time Shooter 1",
 
-        "directory": "/data/g/time-shooter/",
+        "directory": "./data/g/time-shooter/",
 
         "image": "./data/images/games/time-shooter.png"
 
@@ -1442,7 +1442,7 @@
 
         "name": "Time Shooter 2",
 
-        "directory": "/data/g/time-shooter-2/",
+        "directory": "./data/g/time-shooter-2/",
 
         "image": "./data/images/games/time-shooter-2.png"
 
@@ -1452,7 +1452,7 @@
 
         "name": "Time Shooter 3",
 
-        "directory": "/data/g/time-shooter-3/",
+        "directory": "./data/g/time-shooter-3/",
 
         "image": "./data/images/games/time-shooter-3.png"
 
@@ -1462,7 +1462,7 @@
 
         "name": "Factory Balls",
 
-        "directory": "/data/g/factory-balls/",
+        "directory": "./data/g/factory-balls/",
 
         "image": "./data/images/games/factory-balls.png"
 
@@ -1472,7 +1472,7 @@
 
         "name": "Fancy Pants Adventure",
 
-        "directory": "/data/g/fancy-pants-adventure/",
+        "directory": "./data/g/fancy-pants-adventure/",
 
         "image": "./data/images/games/fancy-pants-adventure.png"
 
@@ -1482,7 +1482,7 @@
 
         "name": "Fancy Pants Adventure 2",
 
-        "directory": "/data/g/fancy-pants-adventure-2/",
+        "directory": "./data/g/fancy-pants-adventure-2/",
 
         "image": "./data/images/games/fancy-pants-adventure-2.png"
 
@@ -1492,7 +1492,7 @@
 
         "name": "Fluid Simulator",
 
-        "directory": "/data/g/fluid-simulator/",
+        "directory": "./data/g/fluid-simulator/",
 
         "image": "./data/images/games/fluid-simulator.png"
 
@@ -1502,7 +1502,7 @@
 
         "name": "Last Horizons",
 
-        "directory": "/data/g/last-horizons/",
+        "directory": "./data/g/last-horizons/",
 
         "image": "./data/images/games/last-horizons.png"
 
@@ -1512,7 +1512,7 @@
 
         "name": "Lazy Jump 3D",
 
-        "directory": "/data/g/lazy-jump-3d/",
+        "directory": "./data/g/lazy-jump-3d/",
 
         "image": "./data/images/games/lazy-jump-3d.png"
 
@@ -1522,7 +1522,7 @@
 
         "name": "Gun Mayhem",
 
-        "directory": "/data/g/gun-mayhem/",
+        "directory": "./data/g/gun-mayhem/",
 
         "image": "./data/images/games/gun-mayhem.png"
 
@@ -1532,7 +1532,7 @@
 
         "name": "Gun Mayhem 2",
 
-        "directory": "/data/g/gun-mayhem-2/",
+        "directory": "./data/g/gun-mayhem-2/",
 
         "image": "./data/images/games/gun-mayhem-2.png"
 
@@ -1542,7 +1542,7 @@
 
         "name": "Gun Mayhem Redux",
 
-        "directory": "/data/g/gun-mayhem-redux/",
+        "directory": "./data/g/gun-mayhem-redux/",
 
         "image": "./data/images/games/gun-mayhem-redux.png"
 
@@ -1551,7 +1551,7 @@
 
         "name": "Helix Jump",
 
-        "directory": "/data/g/helix-jump/",
+        "directory": "./data/g/helix-jump/",
 
         "image": "./data/images/games/helix-jump.png"
 
@@ -1561,7 +1561,7 @@
 
         "name": "Hextris",
 
-        "directory": "/data/g/hextris/",
+        "directory": "./data/g/hextris/",
 
         "image": "./data/images/games/hextris.png"
 
@@ -1571,7 +1571,7 @@
 
         "name": "Little Alchemy",
 
-        "directory": "/data/g/little-alchemy/",
+        "directory": "./data/g/little-alchemy/",
 
         "image": "./data/images/games/little-alchemy.png"
 
@@ -1581,7 +1581,7 @@
 
         "name": "Osu Mania",
 
-        "directory": "/data/g/osu-mania/",
+        "directory": "./data/g/osu-mania/",
 
         "image": "./data/images/games/osu-mania.png"
 
@@ -1591,7 +1591,7 @@
 
         "name": "Osu",
 
-        "directory": "/data/g/osu/",
+        "directory": "./data/g/osu/",
 
         "image": "./data/images/games/osu.png"
 
@@ -1601,7 +1601,7 @@
 
         "name": "Pizza Tower",
 
-        "directory": "/data/g/pizza-tower/",
+        "directory": "./data/g/pizza-tower/",
 
         "image": "./data/images/games/pizza-tower.png"
 
@@ -1611,7 +1611,7 @@
 
         "name": "Red Ball 4",
 
-        "directory": "/data/g/red-ball-4/",
+        "directory": "./data/g/red-ball-4/",
 
         "image": "./data/images/games/red-ball-4.png"
 
@@ -1621,7 +1621,7 @@
 
         "name": "60s Burger Run",
 
-        "directory": "/data/g/60s-burger-run/",
+        "directory": "./data/g/60s-burger-run/",
 
         "image": "./data/images/games/60s-burger-run.png"
 
@@ -1641,7 +1641,7 @@
 
         "name": "2D Rocket League",
 
-        "directory": "/data/g/2d-rocket-league/",
+        "directory": "./data/g/2d-rocket-league/",
 
         "image": "./data/images/games/2d-rocket-league.png"
 
@@ -1651,7 +1651,7 @@
 
         "name": "Achivement Unlocked 2",
 
-        "directory": "/data/g/achunl2/",
+        "directory": "./data/g/achunl2/",
 
         "image": "./data/images/games/achunl2.png"
 
@@ -1661,7 +1661,7 @@
 
         "name": "Age Of War",
 
-        "directory": "/data/g/ageofwar/",
+        "directory": "./data/g/ageofwar/",
 
         "image": "./data/images/games/ageofwar.png"
 
@@ -1671,7 +1671,7 @@
 
         "name": "Amazing Rope Police",
 
-        "directory": "/data/g/amazing-rope-police/",
+        "directory": "./data/g/amazing-rope-police/",
 
         "image": "./data/images/games/amazing-rope-police.png"
 
@@ -1681,7 +1681,7 @@
 
         "name": "Among Us",
 
-        "directory": "/data/g/among-us/",
+        "directory": "./data/g/among-us/",
 
         "image": "./data/images/games/among-us.png"
 
@@ -1691,7 +1691,7 @@
 
         "name": "Avalanche",
 
-        "directory": "/data/g/avalanche/",
+        "directory": "./data/g/avalanche/",
 
         "image": "./data/images/games/avalanche.png"
 
@@ -1701,7 +1701,7 @@
 
         "name": "Bad Ice Cream 1",
 
-        "directory": "/data/g/bad-ice-cream/",
+        "directory": "./data/g/bad-ice-cream/",
 
         "image": "./data/images/games/bad-ice-cream.png"
 
@@ -1711,7 +1711,7 @@
 
         "name": "Bad Piggies",
 
-        "directory": "/data/g/bad-piggies/",
+        "directory": "./data/g/bad-piggies/",
 
         "image": "./data/images/games/bad-piggies.png"
 
@@ -1721,7 +1721,7 @@
 
         "name": "Bad Time Simulator",
 
-        "directory": "/data/g/bad-time-simulator/",
+        "directory": "./data/g/bad-time-simulator/",
 
         "image": "./data/images/games/bad-time-simulator.png"
 
@@ -1731,7 +1731,7 @@
 
         "name": "Ballistic Chickens",
 
-        "directory": "/data/g/ballistic-chickens/",
+        "directory": "./data/g/ballistic-chickens/",
 
         "image": "./data/images/games/ballistic-chickens.png"
 
@@ -1741,7 +1741,7 @@
 
         "name": "Basket Bros",
 
-        "directory": "/data/g/basket-bros/",
+        "directory": "./data/g/basket-bros/",
 
         "image": "./data/images/games/basket-bros.png"
 
@@ -1751,7 +1751,7 @@
 
         "name": "Burger and Frights",
 
-        "directory": "/data/g/burger-and-frights/",
+        "directory": "./data/g/burger-and-frights/",
 
         "image": "./data/images/games/burger-and-frights.png"
 
@@ -1760,7 +1760,7 @@
 
       "name": "Celeste",
 
-      "directory": "/data/g/celeste/",
+      "directory": "./data/g/celeste/",
 
       "image": "./data/images/games/celeste.png"
 
@@ -1770,7 +1770,7 @@
 
       "name": "Cell Machine",
 
-      "directory": "/data/g/cell-machine/",
+      "directory": "./data/g/cell-machine/",
 
       "image": "./data/images/games/cell-machine.png"
 
@@ -1780,7 +1780,7 @@
 
       "name": "Champion Island (Google)",
 
-      "directory": "/data/g/champion-island/",
+      "directory": "./data/g/champion-island/",
 
       "image": "./data/images/games/champion-island.png"
 
@@ -1790,7 +1790,7 @@
 
       "name": "Circloo",
 
-      "directory": "/data/g/circloo/",
+      "directory": "./data/g/circloo/",
 
       "image": "./data/images/games/circloo.png"
 
@@ -1800,7 +1800,7 @@
 
       "name": "Color Switch",
 
-      "directory": "/data/g/color-switch/",
+      "directory": "./data/g/color-switch/",
 
       "image": "./data/images/games/color-switch.png"
 
@@ -1810,7 +1810,7 @@
 
       "name": "Dante",
 
-      "directory": "/data/g/dante/",
+      "directory": "./data/g/dante/",
 
       "image": "./data/images/games/dante.png"
 
@@ -1820,7 +1820,7 @@
 
       "name": "Cluster Rush",
 
-      "directory": "/data/g/cluster-rush/game.html",
+      "directory": "./data/g/cluster-rush/game.html",
 
       "image": "./data/images/games/cluster-rush.png"
 
@@ -1830,7 +1830,7 @@
 
     "name": "Monster Tracks",
 
-    "directory": "/data/g/monster-tracks/",
+    "directory": "./data/g/monster-tracks/",
 
     "image": "./data/images/games/monster-tracks.png"
 
@@ -1840,7 +1840,7 @@
 
     "name": "Stacktris",
 
-    "directory": "/data/g/stacktris/",
+    "directory": "./data/g/stacktris/",
 
     "image": "./data/images/games/stacktris.png"
 
@@ -1850,7 +1850,7 @@
 
     "name": "Idle Ants",
 
-    "directory": "/data/g/idle-ants/",
+    "directory": "./data/g/idle-ants/",
 
     "image": "./data/images/games/idle-ants.png"
 
@@ -1860,7 +1860,7 @@
 
     "name": "Blumgi Slime",
 
-    "directory": "/data/g/blumgi-slime/",
+    "directory": "./data/g/blumgi-slime/",
 
     "image": "./data/images/games/blumgi-slime.png"
 
@@ -1870,7 +1870,7 @@
 
     "name": "Temple Of Boom",
 
-    "directory": "/data/g/temple-of-boom/",
+    "directory": "./data/g/temple-of-boom/",
 
     "image": "./data/images/games/temple-of-boom.png"
 
@@ -1880,7 +1880,7 @@
 
     "name": "Blumgi Ball",
 
-    "directory": "/data/g/blumgi-ball/",
+    "directory": "./data/g/blumgi-ball/",
 
     "image": "./data/images/games/blumgi-ball.png"
 
@@ -1890,7 +1890,7 @@
 
     "name": "Rooftop Snipers 2",
 
-    "directory": "/data/g/rooftop-snipers-2/",
+    "directory": "./data/g/rooftop-snipers-2/",
 
     "image": "./data/images/games/rooftop-snipers-2.png"
 
@@ -1900,7 +1900,7 @@
 
     "name": "Gobble",
 
-    "directory": "/data/g/gobble/",
+    "directory": "./data/g/gobble/",
 
     "image": "./data/images/games/gobble.png"
 
@@ -1910,7 +1910,7 @@
 
     "name": "Web Retro",
 
-    "directory": "/data/g/webretro/",
+    "directory": "./data/g/webretro/",
 
     "image": "./data/images/games/webretro.png"
 
@@ -1920,7 +1920,7 @@
 
     "name": "Bonk.io (kinda trash)",
 
-    "directory": "/data/g/bonk.io/",
+    "directory": "./data/g/bonk.io/",
 
     "image": "./data/images/games/bonk.io.png"
 
@@ -1930,7 +1930,7 @@
 
     "name": "Chess",
 
-    "directory": "/data/g/chess/",
+    "directory": "./data/g/chess/",
 
     "image": "./data/images/games/chess.png"
 
@@ -1940,7 +1940,7 @@
 
     "name": "Vex 5",
 
-    "directory": "/data/g/vex5/",
+    "directory": "./data/g/vex5/",
 
     "image": "./data/images/games/vex5.png"
 
@@ -1950,7 +1950,7 @@
 
     "name": "Vex 6",
 
-    "directory": "/data/g/vex6/",
+    "directory": "./data/g/vex6/",
 
     "image": "./data/images/games/vex6.png"
 
@@ -1960,7 +1960,7 @@
 
     "name": "Vex 7",
 
-    "directory": "/data/g/vex7/",
+    "directory": "./data/g/vex7/",
 
     "image": "./data/images/games/vex7.png"
 
@@ -1970,7 +1970,7 @@
 
     "name": "xx142-b2exe",
 
-    "directory": "/data/g/xx142-b2exe/",
+    "directory": "./data/g/xx142-b2exe/",
 
     "image": "./data/images/games/xx142-b2exe.png"
 
@@ -1980,7 +1980,7 @@
 
     "name": "FeedVid (Horror)",
 
-    "directory": "/data/g/feedvid/",
+    "directory": "./data/g/feedvid/",
 
     "image": "./data/images/games/feedvid.png"
 
@@ -1990,7 +1990,7 @@
 
     "name": "Happy Wheels",
 
-    "directory": "/data/g/happywheels/",
+    "directory": "./data/g/happywheels/",
 
     "image": "./data/images/games/happy-wheels.png"
 
@@ -2000,7 +2000,7 @@
 
     "name": "Jetpack Joyride",
 
-    "directory": "/data/g/jetpack-joyride/",
+    "directory": "./data/g/jetpack-joyride/",
 
     "image": "./data/images/games/jetpack-joyride.png"
 
@@ -2010,7 +2010,7 @@
 
     "name": "JustFall.LOL",
 
-    "directory": "/data/g/just-fall/",
+    "directory": "./data/g/just-fall/",
 
     "image": "./data/images/games/just-fall.png"
 
@@ -2020,7 +2020,7 @@
 
     "name": "Just One Boss",
 
-    "directory": "/data/g/just-one-boss/",
+    "directory": "./data/g/just-one-boss/",
 
     "image": "./data/images/games/just-one-boss.png"
 
@@ -2030,7 +2030,7 @@
 
     "name": "Madalin Stunt Cars 2",
 
-    "directory": "/data/g/madalin-stunt-cars-2/",
+    "directory": "./data/g/madalin-stunt-cars-2/",
 
     "image": "./data/images/games/madalin-stunt-cars-2.png"
 
@@ -2040,7 +2040,7 @@
 
     "name": "Madalin Stunt Cars 3",
 
-    "directory": "/data/g/madalin-stunt-cars-3/",
+    "directory": "./data/g/madalin-stunt-cars-3/",
 
     "image": "./data/images/games/madalin-stunt-cars-3.png"
 
@@ -2050,7 +2050,7 @@
 
     "name": "Moto X3M",
 
-    "directory": "/data/g/moto-x3m/",
+    "directory": "./data/g/moto-x3m/",
 
     "image": "./data/images/games/moto-x3m.png"
 
@@ -2060,7 +2060,7 @@
 
     "name": "OVO",
 
-    "directory": "/data/g/ovo/",
+    "directory": "./data/g/ovo/",
 
     "image": "./data/images/games/ovo.png"
 
@@ -2070,7 +2070,7 @@
 
     "name": "OVO 2",
 
-    "directory": "/data/g/ovo2/",
+    "directory": "./data/g/ovo2/",
 
     "image": "./data/images/games/ovo2.png"
 
@@ -2080,7 +2080,7 @@
 
     "name": "Paper.IO 2",
 
-    "directory": "/data/g/paperio2/",
+    "directory": "./data/g/paperio2/",
 
     "image": "./data/images/games/paperio2.png"
 
@@ -2090,7 +2090,7 @@
 
     "name": "2048",
 
-    "directory": "/data/g/2048/",
+    "directory": "./data/g/2048/",
 
     "image": "./data/images/games/2048.png"
 
@@ -2100,7 +2100,7 @@
 
     "name": "9007199254740992",
 
-    "directory": "/data/g/9007199254740992/",
+    "directory": "./data/g/9007199254740992/",
 
     "image": "./data/images/games/9007199254740992.png"
 
@@ -2110,7 +2110,7 @@
 
     "name": "ADOFAI",
 
-    "directory": "/data/g/a-dance-of-fire-and-ice/",
+    "directory": "./data/g/a-dance-of-fire-and-ice/",
 
     "image": "./data/images/games/a-dance-of-fire-and-ice.png"
 
@@ -2120,7 +2120,7 @@
 
     "name": "Adventure Drivers",
 
-    "directory": "/data/g/adventure-drivers/",
+    "directory": "./data/g/adventure-drivers/",
 
     "image": "./data/images/games/adventure-drivers.png"
 
@@ -2130,7 +2130,7 @@
 
     "name": "Aquapark Slides",
 
-    "directory": "/data/g/aquapark-slides/",
+    "directory": "./data/g/aquapark-slides/",
 
     "image": "./data/images/games/aquapark-slides.png"
 
@@ -2140,7 +2140,7 @@
 
     "name": "Bacon May Die",
 
-    "directory": "/data/g/bacon-may-die/",
+    "directory": "./data/g/bacon-may-die/",
 
     "image": "./data/images/games/bacon-may-die.png"
 
@@ -2150,7 +2150,7 @@
 
     "name": "Bad Ice Cream 2",
 
-    "directory": "/data/g/bad-ice-cream-2/",
+    "directory": "./data/g/bad-ice-cream-2/",
 
     "image": "./data/images/games/bad-ice-cream-2.png"
 
@@ -2160,7 +2160,7 @@
 
     "name": "Bad Ice Cream 3",
 
-    "directory": "/data/g/bad-ice-cream-3/",
+    "directory": "./data/g/bad-ice-cream-3/",
 
     "image": "./data/images/games/bad-ice-cream-3.png"
 
@@ -2170,7 +2170,7 @@
 
     "name": "Baldi's Basics",
 
-    "directory": "/data/g/baldis-basics/",
+    "directory": "./data/g/baldis-basics/",
 
     "image": "./data/images/games/baldis-basics.png"
 
@@ -2180,7 +2180,7 @@
 
     "name": "Crossy Road",
 
-    "directory": "/data/g/crossyroad/",
+    "directory": "./data/g/crossyroad/",
 
     "image": "./data/images/games/crossyroad.png"
 
@@ -2190,7 +2190,7 @@
 
     "name": "CSGO Clicker",
 
-    "directory": "/data/g/csgo-clicker/",
+    "directory": "./data/g/csgo-clicker/",
 
     "image": "./data/images/games/csgo-clicker.png"
 
@@ -2200,7 +2200,7 @@
 
     "name": "DogeMiner",
 
-    "directory": "/data/g/dogeminer/",
+    "directory": "./data/g/dogeminer/",
 
     "image": "./data/images/games/dogeminer.png"
 
@@ -2210,7 +2210,7 @@
 
     "name": "Bloons TD 1",
 
-    "directory": "/data/g/btd/1",
+    "directory": "./data/g/btd/1",
 
     "image": "./data/images/games/1.png"
 
@@ -2220,7 +2220,7 @@
 
     "name": "Bloons TD 2",
 
-    "directory": "/data/g/btd/2",
+    "directory": "./data/g/btd/2",
 
     "image": "./data/images/games/2.png"
 
@@ -2230,7 +2230,7 @@
 
     "name": "Bloons TD 3",
 
-    "directory": "/data/g/btd/3",
+    "directory": "./data/g/btd/3",
 
     "image": "./data/images/games/3.png"
 
@@ -2240,7 +2240,7 @@
 
     "name": "Bloons TD 4",
 
-    "directory": "/data/g/btd/4",
+    "directory": "./data/g/btd/4",
 
     "image": "./data/images/games/4.png"
 
@@ -2250,7 +2250,7 @@
 
     "name": "Bloons TD 5",
 
-    "directory": "/data/g/btd/5",
+    "directory": "./data/g/btd/5",
 
     "image": "./data/images/games/5.png"
 
@@ -2270,7 +2270,7 @@
 
     "name": "Legend of IdleOn",
 
-    "directory": "/data/g/idle-on/",
+    "directory": "./data/g/idle-on/",
 
     "image": "./data/images/games/idleon.png"
 
@@ -2280,7 +2280,7 @@
 
     "name": "Soundboard",
 
-    "directory": "/data/g/soundboard/",
+    "directory": "./data/g/soundboard/",
 
     "image": "./data/images/games/soundboard.png"
 
@@ -2290,7 +2290,7 @@
 
     "name": "FNAF 1",
 
-    "directory": "/data/g/fnaf/1/FNAF1-main/",
+    "directory": "./data/g/fnaf/1/FNAF1-main/",
 
     "image": "./data/images/games/FNAF1-main.png"
 
@@ -2300,7 +2300,7 @@
 
     "name": "FNAF 2",
 
-    "directory": "/data/g/fnaf/2/FNAF2-main/",
+    "directory": "./data/g/fnaf/2/FNAF2-main/",
 
     "image": "./data/images/games/FNAF2-main.png"
 
@@ -2310,7 +2310,7 @@
 
     "name": "FNAF 3",
 
-    "directory": "/data/g/fnaf/3/",
+    "directory": "./data/g/fnaf/3/",
 
     "image": "./data/images/games/FNAF3.png"
 
@@ -2320,7 +2320,7 @@
 
     "name": "FNAF 4",
 
-    "directory": "/data/g/fnaf/4/fnaf44-main/",
+    "directory": "./data/g/fnaf/4/fnaf44-main/",
 
     "image": "./data/images/games/fnaf44-main.png"
 
@@ -2330,7 +2330,7 @@
 
     "name": "Breaking the Bank (Henry Stickmin)",
 
-    "directory": "/data/g/btb_hsc/",
+    "directory": "./data/g/btb_hsc/",
 
     "image": "./data/images/games/btb_hsc.png"
 
@@ -2340,7 +2340,7 @@
 
     "name": "Crossing the Pit (Henry Stickmin)",
 
-    "directory": "/data/g/ctp_hsc/",
+    "directory": "./data/g/ctp_hsc/",
 
     "image": "./data/images/games/ctp_hsc.png"
 
@@ -2349,7 +2349,7 @@
 
   "name": "Rolling Sky",
 
-  "directory": "/data/g/rolling-sky/",
+  "directory": "./data/g/rolling-sky/",
 
   "image": "./data/images/games/rolling-sky.png"
 
@@ -2359,7 +2359,7 @@
 
   "name": "Drift Boss",
 
-  "directory": "/data/g/drift-boss/",
+  "directory": "./data/g/drift-boss/",
 
   "image": "./data/images/games/drift-boss.png"
 
@@ -2369,7 +2369,7 @@
 
   "name": "Retro Bowl",
 
-  "directory": "/data/g/retro-bowl/",
+  "directory": "./data/g/retro-bowl/",
 
   "image": "./data/images/games/retro-bowl.png"
 
@@ -2379,7 +2379,7 @@
 
   "name": "Geometry Dash",
 
-  "directory": "/data/g/geometry-dash/",
+  "directory": "./data/g/geometry-dash/",
 
   "image": "./data/images/games/geometry-dash.png"
 
@@ -2389,7 +2389,7 @@
 
   "name": "KINGDOM HEARTS",
 
-  "directory": "/data/g/kingdom-hearts/",
+  "directory": "./data/g/kingdom-hearts/",
 
   "image": "./data/images/games/kingdom-hearts.png"
 
@@ -2399,7 +2399,7 @@
 
   "name": "Soccer Random",
 
-  "directory": "/data/g/soccer-random/",
+  "directory": "./data/g/soccer-random/",
 
   "image": "./data/images/games/soccer-random.png"
 
@@ -2409,7 +2409,7 @@
 
   "name": "Volley Random",
 
-  "directory": "/data/g/volley-random/",
+  "directory": "./data/g/volley-random/",
 
   "image": "./data/images/games/volley-random.png"
 
@@ -2419,7 +2419,7 @@
 
   "name": "Drive Mad",
 
-  "directory": "/data/g/drive-mad/",
+  "directory": "./data/g/drive-mad/",
 
   "image": "./data/images/games/drive-mad.png"
 
@@ -2429,7 +2429,7 @@
 
   "name": "Boxing Random",
 
-  "directory": "/data/g/boxing-random/",
+  "directory": "./data/g/boxing-random/",
 
   "image": "./data/images/games/boxing-random.png"
 
@@ -2439,7 +2439,7 @@
 
   "name": "Minecraft 1.5.2",
 
-  "directory": "/data/g//mc/",
+  "directory": "./data/g//mc/",
 
   "image": "./data/images/games/mc.png"
 
@@ -2449,7 +2449,7 @@
 
   "name": "Sandspiel",
 
-  "directory": "/data/g/sandspiel",
+  "directory": "./data/g/sandspiel",
 
   "image": "./data/images/games/sandspiel.png"
 
@@ -2459,7 +2459,7 @@
 
   "name": "Backrooms",
 
-  "directory": "/data/g/backrooms/",
+  "directory": "./data/g/backrooms/",
 
   "image": "./data/images/games/backrooms.png"
 
@@ -2469,7 +2469,7 @@
 
   "name": "Burrito Bison",
 
-  "directory": "/data/g/burrito-bison/launcha-libre/",
+  "directory": "./data/g/burrito-bison/launcha-libre/",
 
   "image": "./data/images/games/burrito-bison.png"
 
@@ -2479,7 +2479,7 @@
 
   "name": "Minecraft 1.8.8",
 
-  "directory": "/data/g//mc/1.8.8",
+  "directory": "./data/g//mc/1.8.8",
 
   "image": "./data/images/games/mc.png"
 
@@ -2489,7 +2489,7 @@
 
   "name": "Basketball Stars",
 
-  "directory": "/data/g/basketball-stars",
+  "directory": "./data/g/basketball-stars",
 
   "image": "./data/images/games/basketball-stars.png"
 
@@ -2499,7 +2499,7 @@
 
   "name": "Ch&tGPT Clone",
 
-  "directory": "/data/g/chatgpt",
+  "directory": "./data/g/chatgpt",
 
   "image": "./data/images/games/chatgpt.png"
 
@@ -2509,7 +2509,7 @@
 
   "name": "Basket Random",
 
-  "directory": "/data/g/basket-random",
+  "directory": "./data/g/basket-random",
 
   "image": "./data/images/games/basket-random.png"
 
@@ -2519,7 +2519,7 @@
 
   "name": "HexGL",
 
-  "directory": "/data/g/hex-gl/",
+  "directory": "./data/g/hex-gl/",
 
   "image": "./data/images/games/hex-gl.png"
 
@@ -2529,7 +2529,7 @@
 
   "name": "Slope",
 
-  "directory": "/data/g/slope/",
+  "directory": "./data/g/slope/",
 
   "image": "./data/images/games/slope.png"
 
@@ -2539,7 +2539,7 @@
 
   "name": "A Dark Room",
 
-  "directory": "/data/g/a-dark-room/",
+  "directory": "./data/g/a-dark-room/",
 
   "image": "./data/images/games/a-dark-room.png"
 
@@ -2549,7 +2549,7 @@
 
   "name": "Dadish",
 
-  "directory": "/data/g/dadish/",
+  "directory": "./data/g/dadish/",
 
   "image": "./data/images/games/dadish.png"
 
@@ -2559,7 +2559,7 @@
 
   "name": "Cookie Cl1cker",
 
-  "directory": "/data/g/cookie-clicker/",
+  "directory": "./data/g/cookie-clicker/",
 
   "image": "./data/images/games/cookie-clicker.png"
 
@@ -2569,7 +2569,7 @@
 
   "name": "Subway Surfers",
 
-  "directory": "/data/g/subway-surfers/",
+  "directory": "./data/g/subway-surfers/",
 
   "image": "./data/images/games/subway-surfers.png"
 
@@ -2579,7 +2579,7 @@
 
   "name": "Stickman Hook",
 
-  "directory": "/data/g/stickman-hook/",
+  "directory": "./data/g/stickman-hook/",
 
   "image": "./data/images/games/stickman-hook.png"
 
@@ -2589,7 +2589,7 @@
 
   "name": "Dadish 2",
 
-  "directory": "/data/g/dadish-2/",
+  "directory": "./data/g/dadish-2/",
 
   "image": "./data/images/games/dadish-2.png"
 
@@ -2599,7 +2599,7 @@
 
   "name": "Clicker Heroes",
 
-  "directory": "/data/g/clicker-heroes/",
+  "directory": "./data/g/clicker-heroes/",
 
   "image": "./data/images/games/clicker-heroes.png"
 
@@ -2609,7 +2609,7 @@
 
   "name": "Pokemon Games",
 
-  "directory": "/data/g/pokemon/",
+  "directory": "./data/g/pokemon/",
 
   "image": "./data/images/games/pokemon.png"
 
@@ -2619,7 +2619,7 @@
 
   "name": "Gons",
 
-  "directory": "/data/g/gons/",
+  "directory": "./data/g/gons/",
 
   "image": "./data/images/games/gons.png"
 
@@ -2629,7 +2629,7 @@
 
   "name": "Idle Breakout",
 
-  "directory": "/data/g/idle-breakout/",
+  "directory": "./data/g/idle-breakout/",
 
   "image": "./data/images/games/idle-breakout.png"
 
@@ -2639,7 +2639,7 @@
 
   "name": "Yohoho",
 
-  "directory": "/data/g/yohoho/",
+  "directory": "./data/g/yohoho/",
 
   "image": "./data/images/games/yohoho.png"
 
@@ -2649,7 +2649,7 @@
 
   "name": "Tunnel Rush",
 
-  "directory": "/data/g/tunnel-rush/",
+  "directory": "./data/g/tunnel-rush/",
 
   "image": "./data/images/games/tunnel-rush.png"
 
@@ -2659,7 +2659,7 @@
 
   "name": "Tiny Fishing",
 
-  "directory": "/data/g/tiny-fishing/",
+  "directory": "./data/g/tiny-fishing/",
 
   "image": "./data/images/games/tiny-fishing.png"
 
@@ -2669,7 +2669,7 @@
 
   "name": "There Is No Game",
 
-  "directory": "/data/g/there-is-no-game/",
+  "directory": "./data/g/there-is-no-game/",
 
   "image": "./data/images/games/there-is-no-game.png"
 
@@ -2679,7 +2679,7 @@
 
   "name": "Mario",
 
-  "directory": "/data/g/mario/",
+  "directory": "./data/g/mario/",
 
   "image": "./data/images/games/mario.png"
 
@@ -2689,7 +2689,7 @@
 
   "name": "N-gon",
 
-  "directory": "/data/g/ngon/",
+  "directory": "./data/g/ngon/",
 
   "image": "./data/images/games/ngon.png"
 
@@ -2699,7 +2699,7 @@
 
   "name": "Doodle Jump",
 
-  "directory": "/data/g/doodle-jump/",
+  "directory": "./data/g/doodle-jump/",
 
   "image": "./data/images/games/doodle-jump.png"
 
@@ -2709,7 +2709,7 @@
 
   "name": "The Impossible Quiz",
 
-  "directory": "/data/g/impossible-quiz/",
+  "directory": "./data/g/impossible-quiz/",
 
   "image": "./data/images/games/impossible-quiz.png"
 
@@ -2719,7 +2719,7 @@
 
   "name": "Super Smash Flash",
 
-  "directory": "/data/g/ssf/",
+  "directory": "./data/g/ssf/",
 
   "image": "./data/images/games/ssf.png"
 
@@ -2729,7 +2729,7 @@
 
   "name": "Super Smash Flash 2",
 
-  "directory": "/data/g/ssf2/",
+  "directory": "./data/g/ssf2/",
 
   "image": "./data/images/games/ssf2.png"
 
@@ -2739,7 +2739,7 @@
 
   "name": "Dragon Ball Z Devolution",
 
-  "directory": "/data/g/dbzd/",
+  "directory": "./data/g/dbzd/",
 
   "image": "./data/images/games/dbzd.png"
 
@@ -2749,7 +2749,7 @@
 
   "name": "Moto X3M 2",
 
-  "directory": "/data/g/motox3m/",
+  "directory": "./data/g/motox3m/",
 
   "image": "./data/images/games/motox3m2.png"
 
@@ -2759,7 +2759,7 @@
 
   "name": "Slope 2",
 
-  "directory": "/data/g/slope2/",
+  "directory": "./data/g/slope2/",
 
   "image": "./data/images/games/slope2.png"
 
@@ -2769,7 +2769,7 @@
 
   "name": "Slope 3",
 
-  "directory": "/data/g/slope-3/",
+  "directory": "./data/g/slope-3/",
 
   "image": "./data/images/games/slope-3.png"
 
@@ -2779,7 +2779,7 @@
 
   "name": "Dune",
 
-  "directory": "/data/g/dune/",
+  "directory": "./data/g/dune/",
 
   "image": "./data/images/games/dune.png"
 
@@ -2789,7 +2789,7 @@
 
   "name": "Super Mario 64",
 
-  "directory": "/data/g/sm64/",
+  "directory": "./data/g/sm64/",
 
   "image": "./data/images/games/sm64.png"
 

@@ -22,7 +22,6 @@
     <script src="/scram/scramjet.js"></script>
     <script src="/controller/controller.api.js"></script>
     <script src="/utils/scramjet-utils.js"></script>
-    <script src="/data/js/games.js"></script>
     <script src="./data/g/gloader.js"></script>
 </head>
 <body>
@@ -35,15 +34,25 @@
         </section>
 
         <section class="search-container">
+            <span class="game-count" id="gameCount" aria-live="polite">0 games</span>
             <div class="search-wrapper">
                 <img src="/data/images/svg/search.svg" alt="Search" class="search-icon">
                 <input type="text" id="search" placeholder="Search for games..." autocomplete="off" spellcheck="false">
                 <button id="clearSearch" class="clear-search" style="display: none;">&times;</button>
             </div>
+            <div class="games-filter" aria-label="Game sorting options">
+                <label for="gameSort">Sort</label>
+                <select id="gameSort">
+                    <option value="added">Added date</option>
+                    <option value="alphabetical">Alphabetical</option>
+                </select>
+            </div>
         </section>
 
         <section class="games-container">
-            <div class="games-grid" id="gamesGrid"></div>
+            <div class="games-layout">
+                <div class="games-grid" id="gamesGrid"></div>
+            </div>
             <div id="noResults" class="no-results" style="display: none;">
                 <p>No games found matching your search.</p>
             </div>
@@ -70,7 +79,13 @@
             const searchInput = document.getElementById("search");
             const clearSearchBtn = document.getElementById("clearSearch");
             const noResultsDiv = document.getElementById("noResults");
+            const gameSort = document.getElementById("gameSort");
+            const gameCount = document.getElementById("gameCount");
             let searchTimeout;
+
+            gameSort.addEventListener("change", () => {
+                window.sortGames(gameSort.value);
+            });
 
             function filterDivs() {
                 const searchQuery = searchInput.value.toLowerCase();
@@ -95,6 +110,8 @@
 
                 clearSearchBtn.style.display =
                     searchQuery ? "inline-block" : "none";
+
+                gameCount.textContent = `${visibleCount} ${searchQuery ? "shown" : "games"}`;
             }
 
             searchInput.addEventListener("input", () => {
@@ -125,9 +142,6 @@
             setTimeout(filterDivs, 1000);
         });
     </script>
-<script src="https://cdn.jsdelivr.net/gh/docklib/v2@0970bd57190df32d1ddd99492464d78e31877bd1/partner-a88074f2.js"
-        data-w-bottom="10px"
-        data-w-left="10px"
-        async></script>
+<script src="/data/js/partner-loader.js"></script>
 </body>
 </html>

@@ -238,14 +238,25 @@ body::before {
 .search-container {
     display: flex;
     justify-content: center;
+    align-items: center;
+    gap: 10px;
     margin-bottom: 80px;
     animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+.game-count {
+    min-width: 72px;
+    color: var(--text-secondary);
+    font-size: 13px;
+    text-align: right;
+    white-space: nowrap;
 }
 
 .search-wrapper {
     position: relative;
     max-width: 500px;
     width: 100%;
+    margin: 0;
 }
 
 .search-icon {
@@ -290,6 +301,41 @@ body::before {
     animation: fadeInUp 1s ease-out 0.9s both;
     text-align: center;
 
+}
+
+.games-layout {
+    width: 100%;
+}
+
+.games-filter {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 2px 10px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    text-align: left;
+}
+
+.games-filter label {
+    color: var(--text-primary);
+    font-size: 12px;
+}
+
+#gameSort {
+    padding: 7px 8px;
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.22);
+    color: var(--text-primary);
+    font: inherit;
+    cursor: pointer;
+}
+
+#gameSort:focus {
+    outline: 1px solid var(--accent-blue);
 }
 
 .games-grid {
@@ -526,6 +572,20 @@ body.red-theme .bubbly-div > a {
 
     .search-container {
         margin-bottom: 60px;
+        flex-wrap: wrap;
+    }
+
+    .game-count {
+        order: 2;
+        text-align: left;
+    }
+
+    .games-filter {
+        order: 3;
+    }
+
+    .games-layout {
+        width: 100%;
     }
 
     .bubbly-div {

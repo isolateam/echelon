@@ -111,7 +111,15 @@
 
         window.tabFrameApi = {
             navigate(url) {
-                if (sjFrame && url) sjFrame.go(url);
+                if (!url) return;
+
+                const targetUrl = new URL(url, window.location.href);
+                if (targetUrl.origin === window.location.origin) {
+                    fram.src = targetUrl.href;
+                    return;
+                }
+
+                if (sjFrame) sjFrame.go(targetUrl.href);
             },
             search,
             back() {
@@ -172,9 +180,6 @@
 
     <script src="./data/js/loading.js"></script>
     <script src="./data/js/theme.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/docklib/v2@0970bd57190df32d1ddd99492464d78e31877bd1/partner-a88074f2.js"
-        data-w-bottom="10px"
-        data-w-left="10px"
-        async></script>
+    <script src="/data/js/partner-loader.js"></script>
 </body>
 </html>

@@ -1,24 +1,68 @@
-function sortDivsAlphabetically() {
-    const container = document.body; // You can change this to a specific container element if needed
-    const divs = Array.from(container.getElementsByClassName("bubbly-div"));
+let gamesContainer;
 
-    divs.sort((a, b) => {
-        const textA = a.querySelector("a").innerText.toUpperCase();
-        const textB = b.querySelector("a").innerText.toUpperCase();
-        return textA.localeCompare(textB);
+function sortGames(sortBy = 'added') {
+    if (!gamesContainer) return;
+
+    const games = Array.from(gamesContainer.children);
+    games.sort((a, b) => {
+        if (sortBy === 'alphabetical') {
+            return a.querySelector('a').textContent.localeCompare(
+                b.querySelector('a').textContent,
+                undefined,
+                { sensitivity: 'base' }
+            );
+        }
+
+        const dateA = a.dataset.addedDate ? Date.parse(a.dataset.addedDate) : NaN;
+        const dateB = b.dataset.addedDate ? Date.parse(b.dataset.addedDate) : NaN;
+
+        if (!Number.isNaN(dateA) && !Number.isNaN(dateB)) {
+            return dateB - dateA;
+        }
+
+        return Number(a.dataset.addedOrder) - Number(b.dataset.addedOrder);
     });
 
-    // Reorder the elements in the container
-    divs.forEach(div => container.appendChild(div));
-}
-function filterDivs() {
-    const searchInput = document.getElementById('search').value.toLowerCase();
-    const divs = document.getElementsByClassName('bubbly-div');
-
-    Array.from(divs).forEach(div => {
-        const text = div.querySelector('a').innerText.toLowerCase();
-        div.style.display = text.includes(searchInput) ? 'inline-block' : 'none';
-    });
+    games.forEach(game => gamesContainer.appendChild(game));
 }
 
-sortDivsAlphabetically();
+window.sortGames = sortGames;
+
+fetch('/data/json/games.json')
+    .then(response => response.json())
+    .then(data => {
+        gamesContainer = document.getElementById('gamesGrid');
+
+        data.games.forEach((game, index) => {
+            const d = document.createElement('div');
+            d.className = 'bubbly-div';
+            d.dataset.addedOrder = index;
+            if (game.added || game.addedDate) {
+                d.dataset.addedDate = game.added || game.addedDate;
+            }
+
+            const i = document.createElement('img');
+            i.src = game.image;
+
+            const a = document.createElement('a');
+            a.textContent = game.name;
+            a.href = '#';
+            a.style.cursor = 'pointer';
+
+            a.onclick = e => {
+                e.preventDefault();
+                e.stopPropagation();
+                launch(game.directory);
+            };
+
+            d.onclick = e => {
+                if (e.target !== a) launch(game.directory);
+            };
+
+            d.append(i, a);
+            gamesContainer.appendChild(d);
+        });
+
+        sortGames(document.getElementById('gameSort')?.value || 'added');
+    })
+    .catch(e => console.error('error loading games:', e));

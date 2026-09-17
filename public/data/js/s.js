@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Sidebar navigation
     const buttons = document.querySelectorAll('.sidebar button[data-target]');
     const sections = document.querySelectorAll('.option-section');
     const saveChangesButton = document.getElementById("saveChanges");
@@ -17,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Custom CSS functionality
     const textarea = document.querySelector('textarea');
     const customStyle = document.createElement('style');
     document.head.appendChild(customStyle);
@@ -28,7 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Theme dropdown functionality
     const dropdownHeader = document.querySelector('.dropdown-header');
     const dropdownList = document.querySelector('.dropdown-list');
     const selectedTheme = document.getElementById('selected-theme');
@@ -43,11 +40,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const theme = event.target.getAttribute('data-theme');
             document.body.className = theme;
             selectedTheme.textContent = event.target.textContent;
-            localStorage.setItem(THEME_KEY, theme); // Save theme on selection
+            localStorage.setItem(THEME_KEY, theme);
         }
     });
 
-    // Save All Settings on "Save Changes"
     if (saveChangesButton) {
         saveChangesButton.addEventListener("click", () => {
             if (textarea) {
@@ -62,14 +58,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Load localStorage settings after all logic
     loadCustomCSS();
     loadTheme();
     loadAdSetting();
 
     // Disable Ads Functionality
     function toggleAds(disabled) {
-        const adElement = document.getElementById('abscent2');  // Use getElementById for specific element
+        const adElement = document.getElementById('abscent2');
         if (adElement) {
             adElement.style.display = disabled ? 'none' : 'block';
         }
@@ -89,7 +84,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Custom CSS loading
     function loadCustomCSS() {
         const savedCSS = localStorage.getItem('customCSS');
         if (savedCSS && textarea) {
@@ -98,7 +92,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Theme loading
     function loadTheme() {
         const savedTheme = localStorage.getItem(THEME_KEY);
         if (savedTheme) {

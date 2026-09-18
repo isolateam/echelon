@@ -253,10 +253,10 @@
   
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(2, 220px);
-            gap: 20px;
+            grid-template-columns: repeat(3, 180px);
+            gap: 14px;
             justify-content: center;
-            width: 30%;
+            width: min(100%, 570px);
             margin-top: 60px;
         }
         .feature-card {
@@ -264,7 +264,7 @@
             backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
             border-radius: 16px;
-            padding: 20px;
+            padding: 14px;
             text-align: center;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
@@ -289,9 +289,9 @@
         }
 
         .feature-icon {
-            width: 45px;
-            height: 45px;
-            margin: 0 auto 14px;
+            width: 38px;
+            height: 38px;
+            margin: 0 auto 10px;
             background: var(--primary-gradient);
             border-radius: 12px;
             display: flex;
@@ -300,25 +300,67 @@
             transition: transform 0.3s ease;
         }
 
+        .feature-icon-app {
+            width: 38px;
+            height: 38px;
+            margin: 0 auto 10px;
+            background: transparent;
+            border-radius: 0;
+            transition: none;
+        }
+
         .feature-card:hover .feature-icon {
             transform: scale(1.1) rotate(5deg);
         }
 
+        .feature-card:hover .feature-icon-app {
+            transform: none;
+        }
+
+        .bookmark-remove {
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            width: 20px;
+            height: 20px;
+            padding: 0;
+            border: 0;
+            border-radius: 50%;
+            background: transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 16px;
+            line-height: 20px;
+            z-index: 1;
+        }
+
+        .bookmark-remove:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: var(--text-primary);
+        }
+
         .feature-icon img {
-            width: 23px;
-            height: 23px;
+            width: 20px;
+            height: 20px;
             filter: invert(100%);
         }
 
+        .feature-icon-app img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: none;
+        }
+
         .feature-title {
-            font-size: 17px;
+            font-size: 15px;
             font-weight: 600;
-            margin-bottom: 7px;
+            margin-bottom: 5px;
             color: var(--text-primary);
         }
 
         .feature-description {
-            font-size: 12px;
+            font-size: 11px;
             color: var(--text-secondary);
             line-height: 1.4;
         }
@@ -457,6 +499,7 @@
 
             .features-grid {
                 grid-template-columns: 1fr;
+                width: min(100%, 320px);
                 gap: 20px;
                 margin-top: 40px;
             }
@@ -557,6 +600,41 @@
     <h3 class="feature-title">settings</h3>
     <p class="feature-description">customize your experience on breakium</p>
 </div>
+
+            <div class="feature-card" data-bookmark-id="youtube" onclick="openBookmark('https://www.youtube.com/')">
+                <button class="bookmark-remove" type="button" aria-label="Remove YouTube bookmark" onclick="removeBookmark(event, this)">x</button>
+                <div class="feature-icon feature-icon-app">
+                    <img src="/data/images/apps/youtube.png" alt="YouTube">
+                </div>
+                <h3 class="feature-title">youtube</h3>
+                <p class="feature-description">watch something</p>
+            </div>
+
+            <div class="feature-card" data-bookmark-id="tiktok" onclick="openBookmark('https://www.tiktok.com/')">
+                <button class="bookmark-remove" type="button" aria-label="Remove TikTok bookmark" onclick="removeBookmark(event, this)">x</button>
+                <div class="feature-icon feature-icon-app">
+                    <img src="/data/images/apps/tiktok.png" alt="TikTok">
+                </div>
+                <h3 class="feature-title">tiktok</h3>
+                <p class="feature-description">find something fun</p>
+            </div>
+
+            <div class="feature-card" data-bookmark-id="yomi" onclick="openBookmark('https://yomi.to/')">
+                <button class="bookmark-remove" type="button" aria-label="Remove Yomi.to bookmark" onclick="removeBookmark(event, this)">x</button>
+                <div class="feature-icon feature-icon-app">
+                    <img src="/data/images/apps/yomi.png" alt="Yomi.to">
+                </div>
+                <h3 class="feature-title">yomi.to</h3>
+                <p class="feature-description">read manga</p>
+            </div>
+
+            <div class="feature-card" onclick="makeBookmark()">
+                <div class="feature-icon">
+                    <img src="/data/images/svg/newtab.svg" alt="Add bookmark">
+                </div>
+                <h3 class="feature-title">add bookmark</h3>
+                <p class="feature-description">make your own shortcut</p>
+            </div>
         </div>
     </main>
 
@@ -572,7 +650,112 @@
     <script src="./data/js/chatbot-drag.js"></script>
 
     <script>
+        const removedBookmarksKey = 'breakium-removed-bookmarks';
+        const customBookmarksKey = 'breakium-custom-bookmarks';
+
+        function readBookmarks(key, fallback) {
+            try {
+                return JSON.parse(localStorage.getItem(key)) || fallback;
+            } catch {
+                return fallback;
+            }
+        }
+
+        function saveBookmarks(key, bookmarks) {
+            localStorage.setItem(key, JSON.stringify(bookmarks));
+        }
+
+        function removeBookmark(event, button) {
+            event.stopPropagation();
+            const card = button.closest('.feature-card');
+            const bookmarkId = card?.dataset.bookmarkId;
+
+            if (bookmarkId?.startsWith('custom:')) {
+                const id = bookmarkId.slice(7);
+                const bookmarks = readBookmarks(customBookmarksKey, []).filter(bookmark => bookmark.id !== id);
+                saveBookmarks(customBookmarksKey, bookmarks);
+            } else if (bookmarkId) {
+                const removed = readBookmarks(removedBookmarksKey, []);
+                if (!removed.includes(bookmarkId)) removed.push(bookmarkId);
+                saveBookmarks(removedBookmarksKey, removed);
+            }
+
+            card?.remove();
+        }
+
+        function openBookmark(value) {
+            try {
+                const api = window.tabFrameApi || window.parent.tabFrameApi;
+                if (api?.navigate) {
+                    api.navigate(value);
+                    return;
+                }
+            } catch {
+                // Fall back to direct navigation when opened outside the app shell.
+            }
+
+            window.location.href = value;
+        }
+
+        function addCustomBookmark(bookmark) {
+            const card = document.createElement('div');
+            card.className = 'feature-card';
+            card.dataset.bookmarkId = `custom:${bookmark.id}`;
+            card.onclick = () => openBookmark(bookmark.url);
+            card.innerHTML = `
+                <button class="bookmark-remove" type="button" aria-label="Remove bookmark">x</button>
+                <div class="feature-icon feature-icon-app">
+                    <img src="/data/images/svg/newtab.svg" alt="">
+                </div>
+                <h3 class="feature-title"></h3>
+                <p class="feature-description">custom bookmark</p>
+            `;
+            card.querySelector('.feature-title').textContent = bookmark.name;
+            card.querySelector('.bookmark-remove').onclick = event => removeBookmark(event, event.currentTarget);
+            document.querySelector('.features-grid').appendChild(card);
+        }
+
+        function restoreBookmarks() {
+            const removed = readBookmarks(removedBookmarksKey, []);
+            removed.forEach(id => document.querySelector(`[data-bookmark-id="${id}"]`)?.remove());
+            readBookmarks(customBookmarksKey, []).forEach(addCustomBookmark);
+        }
+
+        function makeBookmark() {
+            const name = window.prompt('Bookmark name:');
+            if (!name) return;
+
+            const value = window.prompt('Website URL:');
+            if (!value) return;
+
+            let url;
+            try {
+                url = new URL(value.includes('://') ? value : `https://${value}`);
+            } catch {
+                window.alert('Please enter a valid website URL.');
+                return;
+            }
+
+            if (!['http:', 'https:'].includes(url.protocol)) {
+                window.alert('Please enter an HTTP or HTTPS URL.');
+                return;
+            }
+
+            const bookmark = {
+                id: crypto.randomUUID(),
+                name: name.trim(),
+                url: url.href
+            };
+            const bookmarks = readBookmarks(customBookmarksKey, []);
+            bookmarks.push(bookmark);
+            saveBookmarks(customBookmarksKey, bookmarks);
+            addCustomBookmark(bookmark);
+            openBookmark(bookmark.url);
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
+            restoreBookmarks();
+
             const featureCards = document.querySelectorAll('.feature-card');
             featureCards.forEach(card => {
                 card.addEventListener('mouseenter', function() {

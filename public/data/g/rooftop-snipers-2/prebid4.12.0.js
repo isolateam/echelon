@@ -1,1 +1,0 @@
-No Content: https://tvstore1.github.io/g6/rooftop-snipers-2/prebid4.12.0.js

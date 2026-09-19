@@ -40,7 +40,6 @@ app.get("/go=:query", async (req, res) => {
 app.get("/index", (req, res) => res.sendFile(path.join(publicPath, "index2.html")));
 app.get("/g", (req, res) => res.sendFile(path.join(publicPath, "g.html")));
 app.get("/s", (req, res) => res.sendFile(path.join(publicPath, "s.html")));
-app.get("/a", (req, res) => res.sendFile(path.join(publicPath, "a.html")));
 app.get("/null", (req, res) => res.sendFile(path.join(publicPath, "start.html")));
 app.get("/", (req, res) => res.sendFile(path.join(publicPath, "tabs.html")));
 

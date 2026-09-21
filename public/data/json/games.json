@@ -2,7 +2,7 @@
   "_comment": [
     {
       "name": "name",
-    "directory": "directory",
+      "directory": "directory",
       "image": "./data/images/games/xxxxxxxx"
     },
     {}
@@ -2835,6 +2835,120 @@
 
   "image": "./data/images/games/sm64.png"
 
+},
+{
+  "name": "1 Push",
+  "directory": "https://www.coolmathgames.com/0-1-push/play",
+  "image": "./data/images/games/1.png"
+},
+{
+  "name": "Logic1 Square",
+  "directory": "https://www.coolmathgames.com/0-logic1-square/play",
+  "image": "./data/images/games/1.png"
+},
+{
+  "name": "Logic100 Doors Challenge",
+  "directory": "https://www.coolmathgames.com/0-100-doors-challenge/play",
+  "image": "./data/images/games/1.png"
+},
+{
+  "name": "Logic100 Doors Puzzle",
+  "directory": "https://www.coolmathgames.com/0-100-doors-puzzle/play",
+  "image": "./data/images/games/1.png"
+},
+{
+  "name": "Logic10x10",
+  "directory": "https://www.coolmathgames.com/0-10x10/play",
+  "image": "./data/images/games/1.png"
+},
+{
+  "name": "16 Beads",
+  "directory": "https://www.coolmathgames.com/0-16-beads/play",
+  "image": "./data/images/games/1.png"
+},
+{
+  "name": "2-Player Dino Run",
+  "directory": "https://www.coolmathgames.com/0-2-player-dino-run/play",
+  "image": "./data/images/games/chrome-dino.png"
+},
+{
+  "name": "2048",
+  "directory": "https://www.coolmathgames.com/0-2048/play",
+  "image": "./data/images/games/2048.png"
+},
+{
+  "name": "2048 Cards",
+  "directory": "https://www.coolmathgames.com/0-2048-cards/play",
+  "image": "./data/images/games/2048.png"
+},
+{
+  "name": "2048 Sorting Puzzle",
+  "directory": "https://www.coolmathgames.com/0-2048-sorting-puzzle/play",
+  "image": "./data/images/games/2048.png"
+},
+{
+  "name": "2048: Fibonacci",
+  "directory": "https://www.coolmathgames.com/0-2048-fibonacci/play",
+  "image": "./data/images/games/2048.png"
+},
+{
+  "name": "3 Pandas",
+  "directory": "https://www.coolmathgames.com/0-3-pandas/play",
+  "image": "./data/images/games/1.png"
+},
+{
+  "name": "3 Pandas in Brazil",
+  "directory": "https://www.coolmathgames.com/0-3-pandas-in-brazil/play",
+  "image": "./data/images/games/1.png"
+},
+{
+  "name": "3 Pandas in Fantasy",
+  "directory": "https://www.coolmathgames.com/0-3-pandas-in-fantasy/play",
+  "image": "./data/images/games/1.png"
+},
+{
+  "name": "3 Pandas: Night",
+  "directory": "https://www.coolmathgames.com/0-3-pandas-night/play",
+  "image": "./data/images/games/1.png"
+},
+{
+  "name": "31",
+  "directory": "https://www.coolmathgames.com/0-31/play",
+  "image": "./data/images/games/1.png"
+},
+{
+  "name": "3D Cannon Ball",
+  "directory": "https://www.coolmathgames.com/0-3d-cannon-ball/play",
+  "image": "./data/images/games/1.png"
+},
+{
+  "name": "4 Pictures 1 Word",
+  "directory": "https://www.coolmathgames.com/0-4-pictures-1-word/play",
+  "image": "./data/images/games/1.png"
+},
+{
+  "name": "40xEscape",
+  "directory": "https://www.coolmathgames.com/0-40xescape/play",
+  "image": "./data/images/games/1.png"
+},
+{
+  "name": "4x4 Chess",
+  "directory": "https://www.coolmathgames.com/0-4x4-chess/play",
+  "image": "./data/images/games/chess.png"
+},
+{
+  "name": "5 Similarities",
+  "directory": "https://www.coolmathgames.com/0-5-similarities/play",
+  "image": "./data/images/games/1.png"
+},
+{
+  "name": "5 Step Steve",
+  "directory": "https://www.coolmathgames.com/0-5-step-steve/play",
+  "image": "./data/images/games/1.png"
+},
+{
+  "name": "5xMan",
+  "directory": "https://www.coolmathgames.com/0-5xman/play",
+  "image": "./data/images/games/1.png"
 }
-]
-}
+]}

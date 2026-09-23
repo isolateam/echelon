@@ -1,6 +1,6 @@
 function decode(url) {
     const base = location.origin;
-    if (url === base + '/' || url === base + '/index')
+    if (url === base + '/index')
         return 'breakium://home';
     if (url === base + '/g')
         return 'breakium://games';

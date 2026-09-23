@@ -311,6 +311,7 @@
             sessionStorage.setItem("verifiedAt", Date.now().toString());
             status.textContent = "verified!";
             setTimeout(revealSite, 400);
+            toolbar.frame()?.navigate("/index");
           }, 800);
         });
       })();
@@ -490,6 +491,23 @@
       p.onclick = createTab;
       window.onload = createTab;
 
+      function openInBlank(url) {
+        const win = window.open("about:blank", "_blank");
+        if (!win || win.closed) {
+          alert("The browser blocked the new window. Allow pop-ups for this site and try again.");
+          return;
+        }
+
+        win.document.open();
+        win.document.write("<!doctype html><html><head><title>Breakium</title></head><body style=\"margin:0;overflow:hidden\"></body></html>");
+        win.document.close();
+
+        const iframe = win.document.createElement("iframe");
+        iframe.src = url;
+        iframe.style.cssText = "display:block;width:100vw;height:100vh;border:0;";
+        win.document.body.appendChild(iframe);
+      }
+
       const toolbar = {
         frame() {
           const frame = ai.at(-1);
@@ -498,6 +516,17 @@
         run(action) {
           const api = toolbar.frame();
           if (api && api[action]) api[action]();
+        },
+        open() {
+          const frame = ai.at(-1);
+          const url = frame?.src;
+          if (!url) return;
+
+          if (localStorage.getItem("rootBlankFrame") !== "false") {
+            openInBlank(url);
+          } else {
+            window.open(url, "_blank");
+          }
         }
       };
 
@@ -505,7 +534,7 @@
       document.getElementById("backButton").onclick = () => toolbar.run("back");
       document.getElementById("reloadButton").onclick = () => toolbar.run("reload");
       document.getElementById("forwardButton").onclick = () => toolbar.run("forward");
-      document.getElementById("openButton").onclick = () => toolbar.run("open");
+      document.getElementById("openButton").onclick = () => toolbar.open();
       document.getElementById("fullscreenButton").onclick = () => document.documentElement.requestFullscreen?.();
 
       document.getElementById("uv-form").onsubmit = (event) => {

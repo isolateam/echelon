@@ -54,6 +54,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (adSwitch) {
                 localStorage.setItem('disableAds', adSwitch.checked);
             }
+            const rootBlankFrameSwitch = document.getElementById('rootBlankFrameToggle');
+            if (rootBlankFrameSwitch) {
+                localStorage.setItem('rootBlankFrame', rootBlankFrameSwitch.checked);
+            }
             alert("Settings Saved!");
         });
     }
@@ -61,6 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loadCustomCSS();
     loadTheme();
     loadAdSetting();
+    loadRootBlankFrameSetting();
 
     // Disable Ads Functionality
     function toggleAds(disabled) {
@@ -82,6 +87,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 toggleAds(adSwitch.checked);
             });
         }
+    }
+
+    function loadRootBlankFrameSetting() {
+        const rootBlankFrameSwitch = document.getElementById('rootBlankFrameToggle');
+        if (!rootBlankFrameSwitch) return;
+
+        const enabled = localStorage.getItem('rootBlankFrame') !== 'false';
+        rootBlankFrameSwitch.checked = enabled;
+        rootBlankFrameSwitch.addEventListener('change', () => {
+            localStorage.setItem('rootBlankFrame', rootBlankFrameSwitch.checked);
+        });
     }
 
     function loadCustomCSS() {
